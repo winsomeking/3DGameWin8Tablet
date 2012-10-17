@@ -1,0 +1,48 @@
+Game Title: BEWARE THE RHINO!
+
+Summary:
+We propose creating a similar game to Dragon fly, utilising Direct3D graphics
+and the touch and accelerometer inputs of the Samsung slate PC. The player will
+start from the highest point of a 3D world generated using an algorithm such as 
+plasma fractal, and the objective of the game will be to obtain as many points
+as they can within a time limit. Tilting the slate will move the character, and
+swiping will rotate the camera view.
+
+Reference to Dragon fly game:
+- https://play.google.com/store/apps/details?id=com.lsgvgames.slideandfly&hl=en
+- http://itunes.apple.com/au/app/dragon-fly/id514581589?mt=8 (paid version only)
+- http://www.youtube.com/watch?v=PlpDEPK3XnA
+
+Type of application: Metro app
+Genre: Action arcade game
+
+Hardware Input:
+We will be using Samsung Slate Series 7 for simulation and base design of this game,
+especially the accelerometer and touch screen as the input of the game.
+
+Visualisation:
+- The camera will be following character and the direction it's facing, in 3rd person view.
+- The terrain brightness/light level will depend on the terrain altitude (i.e., 
+  if the ground is high, then that area will be brighter).
+- The polygons that will be in the game will be (mainly) the player, some target dummy and the tarreain itself.
+
+Milestones:
+1. Terrain generation (e.g. using plasma fractal)
+2. Rendering the terrain, player and objects.
+- At later stage, the player will be more detailed.
+3. Implement the camera view + control
+4. The physics of the world and player movement control
+- Calculation from player input and physics of the world to predict player movement.
+5. Handling input from the touch screen and accelerometers.
+6. Adding obstacle/target and time limit in game.
+7. Implement scoring system.
+
+Additional ideas:
+- Player will wrap around the world when they reach edge of the world
+- Additional obstacles/enemies
+- Levelling system
+- Change of character
+- Map themes
+- Special properties of character (e.g. skill, stats)
+- GUI screens (e.g. main menu) 
+- Achievements
