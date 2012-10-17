@@ -358,6 +358,7 @@ C:\Users\DVDLesher\Dropbox\COMP30019 Project\obj\Debug\resources.resfiles
 C:\Users\DVDLesher\Dropbox\COMP30019 Project\obj\Debug\pri.resfiles
 C:\Users\DVDLesher\Dropbox\COMP30019 Project\obj\Debug\LanguageQualifiers.txt
 C:\Users\DVDLesher\Dropbox\COMP30019 Project\obj\Debug\ProjectArchitectures.txt
+<<<<<<< HEAD
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.exe
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.pdb
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.csprojResolveAssemblyReference.cache
@@ -418,3 +419,5 @@ C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\resources.resfiles
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\pri.resfiles
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\LanguageQualifiers.txt
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\ProjectArchitectures.txt
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d

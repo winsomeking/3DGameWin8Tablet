@@ -18,7 +18,11 @@ namespace SharpDX_Windows_8_Abstraction
     class Player : VisibleGameObject
     {
         private Vector3 vel;
+<<<<<<< HEAD
         private float speedXZ = 1.0f;
+=======
+        private float speedXZ = 0;
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
         private float accelerationY = 0;
         private float accelerationXZ = 0;
         private float gravity = -0.5f;
@@ -27,8 +31,11 @@ namespace SharpDX_Windows_8_Abstraction
         private bool leftDown;
         private bool rightDown;
         private bool force_down;
+<<<<<<< HEAD
 
         private float  timer = 0;
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
         //private bool upDown;
         
         private Terrain terrain;
@@ -41,7 +48,11 @@ namespace SharpDX_Windows_8_Abstraction
         public Player(Game game) : base(game) {
             type = GameObjectType.Player;
             model = game.assets.GetModel("player", CreatePlayerModel);
+<<<<<<< HEAD
             pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2), game.getTerrain().getGridlen() / 2);
+=======
+            pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2) + 50, game.getTerrain().getGridlen() / 2);
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             //pos = new SharpDX.Vector3(0, game.getTerrain().getWorldHeight(0, 0), 0);
             vel = Vector3.Zero;
         }
@@ -134,23 +145,34 @@ namespace SharpDX_Windows_8_Abstraction
 	// Shoot a projectile.
         private void rotateAngle(String direction)
         {
+<<<<<<< HEAD
 			/*
             if (direction == "left"){
+=======
+			if (direction == "left"){
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
                 angleXZ = angleXZ + 0.1f;
 			} else if (direction == "right") {
                 angleXZ = angleXZ - 0.1f;
             
+<<<<<<< HEAD
             }*/
+=======
+            }
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 		}
 
         // Frame update.
         public override void Update(float timeDelta)
         {
             // Determine velocity based on keys being pressed.
+<<<<<<< HEAD
             timer += timeDelta;
 
             angleXZ = angleXZ + game.getAccelX() * 0.1f;
 
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             
 
             vel.X = speedXZ * (float)Math.Cos(angleXZ); //*cos(angleXZ);
@@ -201,7 +223,11 @@ namespace SharpDX_Windows_8_Abstraction
             //if (upDown) { vel.Y = speed; } else { vel.Y = 0; }
 
             // Apply velocity to position.
+<<<<<<< HEAD
             // pos += vel * timeDelta;
+=======
+            pos += vel * timeDelta;
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 
             // Keep within the boundaries.
             if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }

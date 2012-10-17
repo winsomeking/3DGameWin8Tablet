@@ -111,7 +111,10 @@
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
+<<<<<<< HEAD
     <Compile Include="CameraController.cs" />
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="App.xaml.cs">

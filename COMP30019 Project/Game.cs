@@ -51,8 +51,11 @@ namespace SharpDX_Windows_8_Abstraction
         private Stack<GameObject> addedGameObjects;
         private Stack<GameObject> removedGameObjects;
 
+<<<<<<< HEAD
         GameInput input = new GameInput();
 
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 
         //For Push and Popping of Matrices
         public Stack<Matrix> worldMatrices = new Stack<Matrix>();
@@ -65,9 +68,12 @@ namespace SharpDX_Windows_8_Abstraction
         private Player player;
         private Terrain game_terrain;
 
+<<<<<<< HEAD
         private CameraController cameraController = new CameraController();
 
 
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
         const int MAP_SIZE = 256;
 
         // Set up the light, a grey ambient light and a white positional light
@@ -109,6 +115,10 @@ namespace SharpDX_Windows_8_Abstraction
             removedGameObjects = new Stack<GameObject>();
 
             // Initialise event handling.
+<<<<<<< HEAD
+=======
+            var input = new GameInput();
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             input.window.KeyDown += KeyDown;
             input.window.KeyUp += KeyUp;
             input.gestureRecognizer.Tapped += Tapped;
@@ -125,12 +135,18 @@ namespace SharpDX_Windows_8_Abstraction
             deviceManager.ContextDirect3D.VertexShader.SetConstantBuffer(0, constantBuffer);
 
             // Set camera
+<<<<<<< HEAD
            // view = Matrix.LookAtLH(new Vector3(0, 0, -10), Vector3.Zero, Vector3.UnitY);
             view = cameraController.getViewProj();
                 //Matrix.LookAtLH(new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
             proj =  cameraController.getProj();
             
             //Matrix.PerspectiveFovLH(1, 1, 0.001f, 100);
+=======
+            //view = Matrix.LookAtLH(new Vector3(0, 0, -10), Vector3.Zero, Vector3.UnitY);
+            view = Matrix.LookAtLH(new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+            proj = Matrix.PerspectiveFovLH(1, 1, 0.001f, 100);
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 
             // Set console as layout.
             console = new Console();
@@ -138,7 +154,10 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Create game objects.
             player = new Player(this);
+<<<<<<< HEAD
             cameraController.lookAt(new Vector3(player.pos.X, player.pos.Y + 150, player.pos.Z - 100), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             Add(player);
             Add(game_terrain);
             Add(new EnemyController(this));
@@ -193,6 +212,7 @@ namespace SharpDX_Windows_8_Abstraction
                 Exit();
             }
 
+<<<<<<< HEAD
             if (arg.VirtualKey == VirtualKey.U)
             {
                 cameraController.walk(1f);
@@ -211,6 +231,8 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 cameraController.rotateY(0.005f);
             }
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             // Pass key events to the game objects.
             foreach (var obj in gameObjects)
             {
@@ -232,9 +254,14 @@ namespace SharpDX_Windows_8_Abstraction
         public void Update()
         {
 
+<<<<<<< HEAD
            //view = Matrix.LookAtLH(new Vector3(player.pos.X-10, player.pos.Y+5, player.pos.Z), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
            cameraController.updateViewMatrix();
            view = cameraController.getView();
+=======
+            view = Matrix.LookAtLH(new Vector3(player.pos.X-10, player.pos.Y+5, player.pos.Z), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             // Calculate timeDelta.
             time = clock.ElapsedMilliseconds / 1000f;
             var timeDelta = time - previousTime;
@@ -372,8 +399,12 @@ namespace SharpDX_Windows_8_Abstraction
 
         public void updateConstantBuffer()
         {
+<<<<<<< HEAD
            //worldViewProj = world * view * proj;
             worldViewProj = world * cameraController.getView() * cameraController.getProj();
+=======
+            worldViewProj = world * view * proj;
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
             worldViewProj.Transpose();
             deviceManager.ContextDirect3D.UpdateSubresource(ref worldViewProj, constantBuffer, 0);
         }
@@ -383,9 +414,12 @@ namespace SharpDX_Windows_8_Abstraction
             return game_terrain;
         }
 
+<<<<<<< HEAD
         public float getAccelX()
         {
             return input.getAccelReading("x");
         }
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
     }
 }

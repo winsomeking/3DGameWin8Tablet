@@ -7,7 +7,10 @@ using Windows.Devices.Sensors;
 using Windows.UI.Xaml;
 using Windows.UI.Input;
 using Windows.UI.Core;
+<<<<<<< HEAD
 using Windows.Foundation;
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 
 
 namespace SharpDX_Windows_8_Abstraction
@@ -17,14 +20,20 @@ namespace SharpDX_Windows_8_Abstraction
         public Accelerometer accelerometer;
         public CoreWindow window;
         public GestureRecognizer gestureRecognizer;
+<<<<<<< HEAD
 
         private float accel_x, accel_y, accel_z;
 
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
         public GameInput()
         {
             // Get the accelerometer object
             accelerometer = Accelerometer.GetDefault();
+<<<<<<< HEAD
             accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
 
             window = Window.Current.CoreWindow;
 
@@ -53,6 +62,7 @@ namespace SharpDX_Windows_8_Abstraction
         {
             gestureRecognizer.ProcessUpEvent(args.CurrentPoint);
         }
+<<<<<<< HEAD
 
         async private void ReadingChanged(object sender, AccelerometerReadingChangedEventArgs e)
         {
@@ -84,5 +94,7 @@ namespace SharpDX_Windows_8_Abstraction
                 return 0;
             }
         }
+=======
+>>>>>>> 66d995487f7c61833f1ed343e2b98795994aea2d
     }
 }
