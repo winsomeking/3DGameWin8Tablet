@@ -98,8 +98,8 @@ namespace SharpDX_Windows_8_Abstraction
             clock.Start();
 
             // Set boundaries.
-            boundaryLeft = -100f;
-            boundaryRight = 100f;
+            boundaryLeft = 0.0f; // In x-axis
+            boundaryRight = (float)MAP_SIZE; // In x-axis
             boundaryTop = 100f;
             boundaryBottom = -100f;
 
@@ -125,9 +125,9 @@ namespace SharpDX_Windows_8_Abstraction
             deviceManager.ContextDirect3D.VertexShader.SetConstantBuffer(0, constantBuffer);
 
             // Set camera
-           // view = Matrix.LookAtLH(new Vector3(0, 0, -10), Vector3.Zero, Vector3.UnitY);
+            // view = Matrix.LookAtLH(new Vector3(0, 0, -10), Vector3.Zero, Vector3.UnitY);
             view = cameraController.getViewProj();
-                //Matrix.LookAtLH(new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+            //Matrix.LookAtLH(new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
             proj =  cameraController.getProj();
             
             //Matrix.PerspectiveFovLH(1, 1, 0.001f, 100);
@@ -138,7 +138,7 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Create game objects.
             player = new Player(this);
-            cameraController.lookAt(new Vector3(player.pos.X, player.pos.Y + 150, player.pos.Z - 100), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            cameraController.lookAt(new Vector3(player.pos.X, player.pos.Y + 30, player.pos.Z - 20), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
             Add(player);
             Add(game_terrain);
             Add(new EnemyController(this));
@@ -184,9 +184,6 @@ namespace SharpDX_Windows_8_Abstraction
         // Handler for key down event.
         public void KeyDown(object s, KeyEventArgs arg)
         {
-            //camX++;
-            //view = Matrix.LookAtLH(new Vector3(0, 0, -10), Vector3.Zero, new Vector3(camX, camY, camZ));
-
             // Close the game if the player presses escape.
 
             if (arg.VirtualKey == VirtualKey.Escape)
@@ -255,9 +252,10 @@ namespace SharpDX_Windows_8_Abstraction
         public void Update()
         {
 
-           //view = Matrix.LookAtLH(new Vector3(player.pos.X-10, player.pos.Y+5, player.pos.Z), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+           cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
            cameraController.updateViewMatrix();
            view = cameraController.getView();
+
             // Calculate timeDelta.
             time = clock.ElapsedMilliseconds / 1000f;
             var timeDelta = time - previousTime;
