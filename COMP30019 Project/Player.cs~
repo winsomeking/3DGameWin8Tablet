@@ -18,7 +18,7 @@ namespace SharpDX_Windows_8_Abstraction
     class Player : VisibleGameObject
     {
         private Vector3 vel;
-        private float speedXZ = 1.0f;
+        private float speedXZ = 0;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
         private float gravity = -0.5f;
@@ -26,9 +26,6 @@ namespace SharpDX_Windows_8_Abstraction
         private bool accel_flag;
         private bool leftDown;
         private bool rightDown;
-        private bool force_down;
-
-        private float  timer = 0;
         //private bool upDown;
         
         private Terrain terrain;
@@ -38,11 +35,11 @@ namespace SharpDX_Windows_8_Abstraction
         private float angleY = 0;
         private float angleXZ = 0;
         
-        public Player(Game game) : base(game) {
+        public Player(Game game, Terrain terrain_input) : base(game) {
             type = GameObjectType.Player;
             model = game.assets.GetModel("player", CreatePlayerModel);
-            pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2), game.getTerrain().getGridlen() / 2);
-            //pos = new SharpDX.Vector3(0, game.getTerrain().getWorldHeight(0, 0), 0);
+            terrain = terrain_input;
+            pos = new SharpDX.Vector3(0, terrain_input.getWorldHeight(terrain_input.getGridlen(),terrain_input.getGridlen()) + 10, 0);
             vel = Vector3.Zero;
         }
 
@@ -103,7 +100,7 @@ namespace SharpDX_Windows_8_Abstraction
                 case VirtualKey.Right: rotateAngle("right"); break;
                 case VirtualKey.Up: speedXZ++; break;
                 case VirtualKey.Down: speedXZ--; break;
-                case VirtualKey.Space: accel_flag = true; force_down = true; break;
+                case VirtualKey.Space: accel_flag = true ; break;
             }
         }
         public override void KeyUp(KeyEventArgs arg)
@@ -112,7 +109,7 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 //case VirtualKey.Left: leftDown = false; break;
                 //case VirtualKey.Right: rightDown = false; break;
-                case VirtualKey.Space: accel_flag = false; ; force_down = false; break;
+                case VirtualKey.Space: accel_flag = false; break;
             }
         }
 
@@ -134,23 +131,18 @@ namespace SharpDX_Windows_8_Abstraction
 	// Shoot a projectile.
         private void rotateAngle(String direction)
         {
-			/*
-            if (direction == "left"){
-                angleXZ = angleXZ + 0.1f;
+			if (direction == "left"){
+                angleXZ++;
 			} else if (direction == "right") {
-                angleXZ = angleXZ - 0.1f;
+                angleXZ--;
             
-            }*/
+            }
 		}
 
         // Frame update.
         public override void Update(float timeDelta)
         {
             // Determine velocity based on keys being pressed.
-            timer += timeDelta;
-
-            angleXZ = angleXZ + game.getAccelX() * 0.1f;
-
             
 
             vel.X = speedXZ * (float)Math.Cos(angleXZ); //*cos(angleXZ);
@@ -162,8 +154,7 @@ namespace SharpDX_Windows_8_Abstraction
 			// TO BE FILLED
 			
 			// Speed control
-            /*
-             * if (accel_flag){
+            if (accel_flag){
                 accelerationY = gravity - 1.0f; 
             } 
             else
@@ -177,23 +168,16 @@ namespace SharpDX_Windows_8_Abstraction
                 {
                     accelerationY = gravity + 2f;
                 }
-            }*/
+            }
 
             /* CHECK COLLISION WITH TERRAIN */
-            /*if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.0f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -1.0f && force_down == false)
+			if (pos.Y == terrain.getWorldHeight((int)pos.X, (int)pos.Z))
             {
-                vel.Y = 1.0f;
                 // COLLISION in Y axis!
                 // Check for angle of terrain and player XYZ angle
                 // If the dot product is close to one, then the player accelerates in XYZ (&& if accel_flag == 1)
             }
-            else
-            {
-                accelerationY = -0.1f;
-            }*/
-
-            vel.Y = -3f;
-
+            
 			/* CHECK COLLISION WITH OBSTACLE */
 			
             //if (leftDown) {vel.X -= speed; }
@@ -201,11 +185,17 @@ namespace SharpDX_Windows_8_Abstraction
             //if (upDown) { vel.Y = speed; } else { vel.Y = 0; }
 
             // Apply velocity to position.
-            // pos += vel * timeDelta;
+            pos += vel * timeDelta;
 
             // Keep within the boundaries.
             if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
             if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
+        }
+
+        // When new world is generated, this function needs to be called
+        public void setTerrain(Terrain terrain_input)
+        {
+            terrain = terrain_input;
         }
 
         // React to getting hit by an enemy bullet.

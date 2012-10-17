@@ -7,6 +7,7 @@ using Windows.Devices.Sensors;
 using Windows.UI.Xaml;
 using Windows.UI.Input;
 using Windows.UI.Core;
+using Windows.Foundation;
 
 
 namespace SharpDX_Windows_8_Abstraction
@@ -16,10 +17,14 @@ namespace SharpDX_Windows_8_Abstraction
         public Accelerometer accelerometer;
         public CoreWindow window;
         public GestureRecognizer gestureRecognizer;
+
+        private float accel_x, accel_y, accel_z;
+
         public GameInput()
         {
             // Get the accelerometer object
             accelerometer = Accelerometer.GetDefault();
+            accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
 
             window = Window.Current.CoreWindow;
 
@@ -47,6 +52,37 @@ namespace SharpDX_Windows_8_Abstraction
         void OnPointerReleased(CoreWindow sender, PointerEventArgs args)
         {
             gestureRecognizer.ProcessUpEvent(args.CurrentPoint);
+        }
+
+        async private void ReadingChanged(object sender, AccelerometerReadingChangedEventArgs e)
+        {
+            await window.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                AccelerometerReading reading = e.Reading;
+                accel_x = (float)reading.AccelerationX;
+                accel_y = (float)reading.AccelerationY;
+                accel_z = (float)reading.AccelerationZ;
+            });
+        }
+
+        public float getAccelReading(String type)
+        {
+            if (type == "x")
+            {
+                return accel_x;
+            }
+            else if (type == "y")
+            {
+                return accel_y;
+            }
+            else if (type == "z")
+            {
+                return accel_z;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

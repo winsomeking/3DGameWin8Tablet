@@ -7,39 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml;
-using SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo;
+
 
 namespace SharpDX_Windows_8_Abstraction
 {
-    public partial class App : IXamlMetadataProvider
+    public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private XamlTypeInfoProvider _provider;
+        private global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
-        public IXamlType GetXamlType(Type type)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.Type type)
         {
             if(_provider == null)
             {
-                _provider = new XamlTypeInfoProvider();
+                _provider = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
 
-        public IXamlType GetXamlType(String typeName)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.String fullName)
         {
             if(_provider == null)
             {
-                _provider = new XamlTypeInfoProvider();
+                _provider = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider();
             }
-            return _provider.GetXamlTypeByName(typeName);
+            return _provider.GetXamlTypeByName(fullName);
         }
 
-        public XmlnsDefinition[] GetXmlnsDefinitions()
+        public global::Windows.UI.Xaml.Markup.XmlnsDefinition[] GetXmlnsDefinitions()
         {
-            return new XmlnsDefinition[0];
+            return new global::Windows.UI.Xaml.Markup.XmlnsDefinition[0];
         }
     }
 }
@@ -51,10 +47,10 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal partial class XamlTypeInfoProvider
     {
-        public IXamlType GetXamlTypeByType(Type type)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByType(global::System.Type type)
         {
             string standardName;
-            IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
             if(_xamlTypeToStandardName.TryGetValue(type, out standardName))
             {
                 xamlType = GetXamlTypeByName(standardName);
@@ -66,13 +62,13 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             return xamlType;
         }
 
-        public IXamlType GetXamlTypeByName(string typeName)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
         {
-            if (String.IsNullOrEmpty(typeName))
+            if (global::System.String.IsNullOrEmpty(typeName))
             {
                 return null;
             }
-            IXamlType xamlType;
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType;
             if (_xamlTypes.TryGetValue(typeName, out xamlType))
             {
                 return xamlType;
@@ -85,13 +81,13 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             return xamlType;
         }
 
-        public IXamlMember GetMemberByLongName(string longMemberName)
+        public global::Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
         {
-            if (String.IsNullOrEmpty(longMemberName))
+            if (global::System.String.IsNullOrEmpty(longMemberName))
             {
                 return null;
             }
-            IXamlMember xamlMember;
+            global::Windows.UI.Xaml.Markup.IXamlMember xamlMember;
             if (_xamlMembers.TryGetValue(longMemberName, out xamlMember))
             {
                 return xamlMember;
@@ -104,11 +100,11 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             return xamlMember;
         }
 
-        Dictionary<string, IXamlType> _xamlTypes = new Dictionary<string, IXamlType>();
-        Dictionary<string, IXamlMember> _xamlMembers = new Dictionary<string, IXamlMember>();
-        Dictionary<Type, string> _xamlTypeToStandardName = new Dictionary<Type, string>();
+        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType> _xamlTypes = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType>();
+        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember> _xamlMembers = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember>();
+        global::System.Collections.Generic.Dictionary<global::System.Type, string> _xamlTypeToStandardName = new global::System.Collections.Generic.Dictionary<global::System.Type, string>();
 
-        private void AddToMapOfTypeToStandardName(Type t, String str)
+        private void AddToMapOfTypeToStandardName(global::System.Type t, global::System.String str)
         {
             if(!_xamlTypeToStandardName.ContainsKey(t))
             {
@@ -116,42 +112,42 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             }
         }
 
-        private object Activate_0_Console() { return new SharpDX_Windows_8_Abstraction.Console(); }
+        private object Activate_0_Console() { return new global::SharpDX_Windows_8_Abstraction.Console(); }
 
-        private object Activate_1_MainPage() { return new SharpDX_Windows_8_Abstraction.MainPage(); }
+        private object Activate_1_MainPage() { return new global::SharpDX_Windows_8_Abstraction.MainPage(); }
 
 
-        private IXamlType CreateXamlType(string typeName)
+        private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
         {
-            XamlSystemBaseType xamlType = null;
-            XamlUserType userType;
+            global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlUserType userType;
 
             switch (typeName)
             {
             case "Windows.UI.Xaml.Controls.Page":
-                xamlType = new XamlSystemBaseType(typeName, typeof(Windows.UI.Xaml.Controls.Page));
+                xamlType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
                 break;
 
             case "Windows.UI.Xaml.Controls.UserControl":
-                xamlType = new XamlSystemBaseType(typeName, typeof(Windows.UI.Xaml.Controls.UserControl));
+                xamlType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
                 break;
 
             case "Windows.UI.Xaml.Controls.SwapChainBackgroundPanel":
-                xamlType = new XamlSystemBaseType(typeName, typeof(Windows.UI.Xaml.Controls.SwapChainBackgroundPanel));
+                xamlType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.SwapChainBackgroundPanel));
                 break;
 
             case "Windows.UI.Xaml.Controls.Panel":
-                xamlType = new XamlSystemBaseType(typeName, typeof(Windows.UI.Xaml.Controls.Panel));
+                xamlType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Panel));
                 break;
 
             case "SharpDX_Windows_8_Abstraction.Console":
-                userType = new XamlUserType(this, typeName, typeof(SharpDX_Windows_8_Abstraction.Console), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::SharpDX_Windows_8_Abstraction.Console), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_Console;
                 xamlType = userType;
                 break;
 
             case "SharpDX_Windows_8_Abstraction.MainPage":
-                userType = new XamlUserType(this, typeName, typeof(SharpDX_Windows_8_Abstraction.MainPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.SwapChainBackgroundPanel"));
+                userType = new global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::SharpDX_Windows_8_Abstraction.MainPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.SwapChainBackgroundPanel"));
                 userType.Activator = Activate_1_MainPage;
                 xamlType = userType;
                 break;
@@ -162,9 +158,9 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
 
 
 
-        private IXamlMember CreateXamlMember(string longMemberName)
+        private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            XamlMember xamlMember = null;
+            global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlMember xamlMember = null;
             // No Local Properties
             return xamlMember;
         }
@@ -174,12 +170,12 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlSystemBaseType : IXamlType
+    internal class XamlSystemBaseType : global::Windows.UI.Xaml.Markup.IXamlType
     {
         string _fullName;
-        Type _underlyingType;
+        global::System.Type _underlyingType;
 
-        public XamlSystemBaseType(string fullName, Type underlyingType)
+        public XamlSystemBaseType(string fullName, global::System.Type underlyingType)
         {
             _fullName = fullName;
             _underlyingType = underlyingType;
@@ -187,7 +183,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
 
         public string FullName { get { return _fullName; } }
 
-        public Type UnderlyingType
+        public global::System.Type UnderlyingType
         {
             get
             {
@@ -195,22 +191,22 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             }
         }
 
-        virtual public IXamlType BaseType { get { throw new NotImplementedException(); } }
-        virtual public IXamlMember ContentProperty { get { throw new NotImplementedException(); } }
-        virtual public IXamlMember GetMember(string name) { throw new NotImplementedException(); }
-        virtual public bool IsArray { get { throw new NotImplementedException(); } }
-        virtual public bool IsCollection { get { throw new NotImplementedException(); } }
-        virtual public bool IsConstructible { get { throw new NotImplementedException(); } }
-        virtual public bool IsDictionary { get { throw new NotImplementedException(); } }
-        virtual public bool IsMarkupExtension { get { throw new NotImplementedException(); } }
-        virtual public bool IsBindable { get { throw new NotImplementedException(); } }
-        virtual public IXamlType ItemType { get { throw new NotImplementedException(); } }
-        virtual public IXamlType KeyType { get { throw new NotImplementedException(); } }
-        virtual public object ActivateInstance() { throw new NotImplementedException(); }
-        virtual public void AddToMap(object instance, object key, object item)  { throw new NotImplementedException(); }
-        virtual public void AddToVector(object instance, object item)  { throw new NotImplementedException(); }
-        virtual public void RunInitializer()   { throw new NotImplementedException(); }
-        virtual public object CreateFromString(String input)   { throw new NotImplementedException(); }
+        virtual public global::Windows.UI.Xaml.Markup.IXamlType BaseType { get { throw new global::System.NotImplementedException(); } }
+        virtual public global::Windows.UI.Xaml.Markup.IXamlMember ContentProperty { get { throw new global::System.NotImplementedException(); } }
+        virtual public global::Windows.UI.Xaml.Markup.IXamlMember GetMember(string name) { throw new global::System.NotImplementedException(); }
+        virtual public bool IsArray { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsCollection { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsConstructible { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsDictionary { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsMarkupExtension { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsBindable { get { throw new global::System.NotImplementedException(); } }
+        virtual public global::Windows.UI.Xaml.Markup.IXamlType ItemType { get { throw new global::System.NotImplementedException(); } }
+        virtual public global::Windows.UI.Xaml.Markup.IXamlType KeyType { get { throw new global::System.NotImplementedException(); } }
+        virtual public object ActivateInstance() { throw new global::System.NotImplementedException(); }
+        virtual public void AddToMap(object instance, object key, object item)  { throw new global::System.NotImplementedException(); }
+        virtual public void AddToVector(object instance, object item)  { throw new global::System.NotImplementedException(); }
+        virtual public void RunInitializer()   { throw new global::System.NotImplementedException(); }
+        virtual public object CreateFromString(global::System.String input)   { throw new global::System.NotImplementedException(); }
     }
     
     internal delegate object Activator();
@@ -220,10 +216,10 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : XamlSystemBaseType
+    internal class XamlUserType : global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlSystemBaseType
     {
-        XamlTypeInfoProvider _provider;
-        IXamlType _baseType;
+        global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
         bool _isBindable;
@@ -231,10 +227,10 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
         string _contentPropertyName;
         string _itemTypeName;
         string _keyTypeName;
-        Dictionary<string, string> _memberNames;
-        Dictionary<string, object> _enumValues;
+        global::System.Collections.Generic.Dictionary<string, string> _memberNames;
+        global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(XamlTypeInfoProvider provider, string fullName, Type fullType, IXamlType baseType)
+        public XamlUserType(global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -243,7 +239,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
 
         // --- Interface methods ----
 
-        override public IXamlType BaseType { get { return _baseType; } }
+        override public global::Windows.UI.Xaml.Markup.IXamlType BaseType { get { return _baseType; } }
         override public bool IsArray { get { return _isArray; } }
         override public bool IsCollection { get { return (CollectionAdd != null); } }
         override public bool IsConstructible { get { return (Activator != null); } }
@@ -251,22 +247,22 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
         override public bool IsMarkupExtension { get { return _isMarkupExtension; } }
         override public bool IsBindable { get { return _isBindable; } }
 
-        override public IXamlMember ContentProperty
+        override public global::Windows.UI.Xaml.Markup.IXamlMember ContentProperty
         {
             get { return _provider.GetMemberByLongName(_contentPropertyName); }
         }
 
-        override public IXamlType ItemType
+        override public global::Windows.UI.Xaml.Markup.IXamlType ItemType
         {
             get { return _provider.GetXamlTypeByName(_itemTypeName); }
         }
 
-        override public IXamlType KeyType
+        override public global::Windows.UI.Xaml.Markup.IXamlType KeyType
         {
             get { return _provider.GetXamlTypeByName(_keyTypeName); }
         }
 
-        override public IXamlMember GetMember(string name)
+        override public global::Windows.UI.Xaml.Markup.IXamlMember GetMember(string name)
         {
             if (_memberNames == null)
             {
@@ -300,39 +296,39 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(UnderlyingType.TypeHandle);
         }
 
-        override public Object CreateFromString(String input)
+        override public global::System.Object CreateFromString(global::System.String input)
         {
             if (_enumValues != null)
             {
-                Int32 value = 0;
+                global::System.Int32 value = 0;
 
                 string[] valueParts = input.Split(',');
 
                 foreach (string valuePart in valueParts) 
                 {
                     object partValue;
-                    Int32 enumFieldValue = 0;
+                    global::System.Int32 enumFieldValue = 0;
                     try
                     {
                         if (_enumValues.TryGetValue(valuePart.Trim(), out partValue))
                         {
-                            enumFieldValue = Convert.ToInt32(partValue);
+                            enumFieldValue = global::System.Convert.ToInt32(partValue);
                         }
                         else
                         {
                             try
                             {
-                                enumFieldValue = Convert.ToInt32(valuePart.Trim());
+                                enumFieldValue = global::System.Convert.ToInt32(valuePart.Trim());
                             }
-                            catch( FormatException )
+                            catch( global::System.FormatException )
                             {
                                 foreach( string key in _enumValues.Keys )
                                 {
-                                    if( String.Compare(valuePart.Trim(), key, System.StringComparison.OrdinalIgnoreCase) == 0 )
+                                    if( global::System.String.Compare(valuePart.Trim(), key, global::System.StringComparison.OrdinalIgnoreCase) == 0 )
                                     {
                                         if( _enumValues.TryGetValue(key.Trim(), out partValue) )
                                         {
-                                            enumFieldValue = Convert.ToInt32(partValue);
+                                            enumFieldValue = global::System.Convert.ToInt32(partValue);
                                             break;
                                         }
                                     }
@@ -341,15 +337,15 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
                         }
                         value |= enumFieldValue; 
                     }
-                    catch( FormatException )
+                    catch( global::System.FormatException )
                     {
-                        throw new ArgumentException(input, FullName);
+                        throw new global::System.ArgumentException(input, FullName);
                     }
                 }
 
                 return value; 
             }
-            throw new ArgumentException(input, FullName);
+            throw new global::System.ArgumentException(input, FullName);
         }
 
         // --- End of Interface methods
@@ -392,7 +388,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
         {
             if(_memberNames == null)
             {
-                _memberNames =  new Dictionary<string,string>();
+                _memberNames =  new global::System.Collections.Generic.Dictionary<string,string>();
             }
             _memberNames.Add(shortName, FullName + "." + shortName);
         }
@@ -401,7 +397,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
         {
             if (_enumValues == null)
             {
-                _enumValues = new Dictionary<string, object>();
+                _enumValues = new global::System.Collections.Generic.Dictionary<string, object>();
             }
             _enumValues.Add(name, value);
         }
@@ -413,9 +409,9 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlMember : IXamlMember
+    internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        XamlTypeInfoProvider _provider;
+        global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -424,7 +420,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
@@ -433,16 +429,16 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
 
         public string Name { get { return _name; } }
 
-        public IXamlType Type
+        public global::Windows.UI.Xaml.Markup.IXamlType Type
         {
             get { return _provider.GetXamlTypeByName(_typeName); }
         }
 
-        public void SetTargetTypeName(String targetTypeName)
+        public void SetTargetTypeName(global::System.String targetTypeName)
         {
             _targetTypeName = targetTypeName;
         }
-        public IXamlType TargetType
+        public global::Windows.UI.Xaml.Markup.IXamlType TargetType
         {
             get { return _provider.GetXamlTypeByName(_targetTypeName); }
         }
@@ -462,7 +458,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             if (Getter != null)
                 return Getter(instance);
             else
-                throw new InvalidOperationException("GetValue");
+                throw new global::System.InvalidOperationException("GetValue");
         }
 
         public Setter Setter { get; set; }
@@ -471,7 +467,7 @@ namespace SharpDX_Windows_8_Abstraction.SharpDX_Windows_8_Abstraction_XamlTypeIn
             if (Setter != null)
                 Setter(instance, value);
             else
-                throw new InvalidOperationException("SetValue");
+                throw new global::System.InvalidOperationException("SetValue");
         }
     }
 }

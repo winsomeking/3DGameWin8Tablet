@@ -1,1 +1,1 @@
-C:\Users\DVDLesher\Dropbox\COMP30019 Project\SharpDX_Windows_8_Abstraction.csproj;neutral
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\SharpDX_Windows_8_Abstraction.csproj;neutral
