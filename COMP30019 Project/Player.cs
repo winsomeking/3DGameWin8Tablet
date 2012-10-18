@@ -18,32 +18,31 @@ namespace SharpDX_Windows_8_Abstraction
     class Player : VisibleGameObject
     {
         private Vector3 vel;
-        private float speedXZ = 1.0f;
+        private Vector3 next_pos;
+        private Vector3 next_pos_vector;
+        private Vector3 normalized_vel;
+        private float resultant_collision;
+
+        private float speedXZ = 8.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -0.5f;
+        private float gravity = -0.08f;
         
-        private bool accel_flag;
         private bool leftDown;
         private bool rightDown;
-        private bool force_down;
-
-        private float  timer = 0;
-        //private bool upDown;
         
-        private Terrain terrain;
-        
-        //private float projectileSpeed = 20;
+        private float projectileSpeed = 20;
 
-        private float angleY = 0;
         private float angleXZ = 0;
         
         public Player(Game game) : base(game) {
             type = GameObjectType.Player;
             model = game.assets.GetModel("player", CreatePlayerModel);
-            pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2), game.getTerrain().getGridlen() / 2);
-            //pos = new SharpDX.Vector3(0, game.getTerrain().getWorldHeight(0, 0), 0);
+            pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2) + 32, game.getTerrain().getGridlen() / 2);
             vel = Vector3.Zero;
+            next_pos = Vector3.Zero;
+            next_pos_vector = Vector3.Zero;
+            normalized_vel = Vector3.Zero;
         }
 
         public Model CreatePlayerModel()
@@ -75,15 +74,6 @@ namespace SharpDX_Windows_8_Abstraction
                 rightDown = false;
                 leftDown = true;
             }
-
-            if (args.Delta.Translation.Y > 0)
-            {
-                accel_flag = true;
-            }
-            else
-            {
-                accel_flag = false;
-            }
         }
 
         // Simulates a key release when the horizontal drag has completed
@@ -91,7 +81,6 @@ namespace SharpDX_Windows_8_Abstraction
         {
             leftDown = false;
             rightDown = false;
-            accel_flag = false;
         }
 
         // Keyboard controls.
@@ -99,119 +88,93 @@ namespace SharpDX_Windows_8_Abstraction
         {
             switch (arg.VirtualKey)
             {
-                case VirtualKey.Left: rotateAngle("left"); break;
-                case VirtualKey.Right: rotateAngle("right"); break;
-                case VirtualKey.Up: speedXZ++; break;
-                case VirtualKey.Down: speedXZ--; break;
-                case VirtualKey.Space: accel_flag = true; force_down = true; break;
+                case VirtualKey.Left: angleXZ += 0.1f; break;
+                case VirtualKey.Right: angleXZ -= 0.1f; break;
+                case VirtualKey.Space: break;
             }
         }
         public override void KeyUp(KeyEventArgs arg)
         {
             switch (arg.VirtualKey)
             {
-                //case VirtualKey.Left: leftDown = false; break;
-                //case VirtualKey.Right: rightDown = false; break;
-                case VirtualKey.Space: accel_flag = false; ; force_down = false; break;
+                case VirtualKey.Left: leftDown = false; break;
+                case VirtualKey.Right: rightDown = false; break;
+                case VirtualKey.Space: break;
             }
         }
 
         // Shoot a projectile.
         private void fire()
         {
-           /*game.Add(new Projectile(game,
+           game.Add(new Projectile(game,
                 game.assets.GetModel("player projectile", CreatePlayerProjectileModel),
                 pos,
                 new Vector3(0, projectileSpeed, 0),
                 GameObjectType.Enemy
-            ));*/
-
-            //accelerationY = -5.0f;
-
+            ));
 
         }
-
-	// Shoot a projectile.
-        private void rotateAngle(String direction)
-        {
-			/*
-            if (direction == "left"){
-                angleXZ = angleXZ + 0.1f;
-			} else if (direction == "right") {
-                angleXZ = angleXZ - 0.1f;
-            
-            }*/
-		}
 
         // Frame update.
         public override void Update(float timeDelta)
         {
             // Determine velocity based on keys being pressed.
-            timer += timeDelta;
-
-            angleXZ = angleXZ + game.getAccelX() * 0.1f;
-
-            
-
-            vel.X = speedXZ * (float)Math.Cos(angleXZ); //*cos(angleXZ);
-            vel.Z = speedXZ * (float)Math.Sin(angleXZ); //*sin(angleXZ);
-
+            vel.X = (speedXZ + accelerationXZ) * (float)Math.Cos(angleXZ); //*cos(angleXZ);
+            vel.Z = (speedXZ + accelerationXZ) * (float)Math.Sin(angleXZ); //*sin(angleXZ);
             vel.Y += accelerationY;
 
             // If accelerometer is tilted, then 
-			// TO BE FILLED
+            angleXZ = angleXZ + game.getAccelX() * 0.1f;
 			
-			// Speed control
-            /*
-             * if (accel_flag){
-                accelerationY = gravity - 1.0f; 
-            } 
-            else
-            {
-                if (vel.Y <= 0.5f && vel.Y >= -0.5f)
-                {
-                    accelerationY = gravity;
-                    vel.Y = 0;
-                }
-                else
-                {
-                    accelerationY = gravity + 2f;
-                }
-            }*/
 
             /* CHECK COLLISION WITH TERRAIN */
-            /*if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.0f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -1.0f && force_down == false)
+            if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.0f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -10.0f)
             {
-                vel.Y = 1.0f;
                 // COLLISION in Y axis!
                 // Check for angle of terrain and player XYZ angle
                 // If the dot product is close to one, then the player accelerates in XYZ (&& if accel_flag == 1)
+                
+                // Next 4 line is just for calculation purpose upon collision
+                normalized_vel = SharpDX.Vector3.Normalize(vel);
+                if (normalized_vel.X > 0) { normalized_vel.X = 1; } else { normalized_vel.X = -1; }
+                if (normalized_vel.Z > 0) { normalized_vel.Z = 1; } else { normalized_vel.Z = -1; }
+                next_pos = new Vector3((int)(pos.X + normalized_vel.X), game.getTerrain().getWorldHeight((int)(pos.X + normalized_vel.X), (int)(pos.Z + normalized_vel.Z)), (int)(pos.Z + normalized_vel.Z));
+                next_pos_vector = next_pos - pos;
+                resultant_collision = SharpDX.Vector3.Dot(normalized_vel, next_pos_vector);
+                
+                accelerationXZ = resultant_collision;
+
+                vel.Y = 0.0f;
+                pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z);
+
             }
             else
             {
-                accelerationY = -0.1f;
-            }*/
-
-            vel.Y = -3f;
+                accelerationY = gravity;
+                accelerationXZ = accelerationXZ * 0.9f;
+            }
 
 			/* CHECK COLLISION WITH OBSTACLE */
-			
-            //if (leftDown) {vel.X -= speed; }
-            //if (rightDown) { vel.X += speed; }
-            //if (upDown) { vel.Y = speed; } else { vel.Y = 0; }
+
 
             // Apply velocity to position.
-            // pos += vel * timeDelta;
+            pos += vel * timeDelta;
 
             // Keep within the boundaries.
-            if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
-            if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
+            //if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
+            //if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
         }
 
         // React to getting hit by an enemy bullet.
         public void Hit()
         {
             game.Exit();
+        }
+
+        // React to getting hit by an enemy bullet.
+        public float getAngleXZ()
+        {
+            return angleXZ;
         }
     }
 }
