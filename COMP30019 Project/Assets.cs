@@ -91,6 +91,8 @@ namespace SharpDX_Windows_8_Abstraction
         // Generate an input style suitable for using with textured shapes.
         private Style createTexturedStyle()
         {
+            
+            //FIX ME: add a new input element to describe normal elements.
             return new Style(
                 "shaders\\VS_TEXTURED.cso",
                 "shaders\\PS_TEXTURED.cso",

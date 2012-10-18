@@ -21,6 +21,7 @@ struct VS_COLOURED_IN
 {
 	float3 pos : POSITION;
 	float4 col : COLOR;
+	float4 nrm : NORMAL;
 };
 
 struct PS_COLOURED_IN
@@ -29,15 +30,30 @@ struct PS_COLOURED_IN
 	float4 col : COLOR;
 };
 
-float4x4 worldViewProj;
+//This variable will be put in constant buffer
+//float4x4 worldViewProj;
+
+cbuffer shaderGlobals
+{
+	float4x4 worldViewProj;
+	float4   eyePos4;
+	float4   lightAmbCol;
+	float4   lightPntPos;
+	float4   lightPntCol;
+}
 
 PS_COLOURED_IN VS_COLOURED( VS_COLOURED_IN input )
 {
+	/*PS_COLOURED_IN output = (PS_COLOURED_IN)0;
+	
+	output.pos = mul(float4(input.pos, 1.0f), worldViewProj);
+	output.col = input.col;*/
+	
 	PS_COLOURED_IN output = (PS_COLOURED_IN)0;
 	
 	output.pos = mul(float4(input.pos, 1.0f), worldViewProj);
 	output.col = input.col;
-	
+
 	return output;
 }
 
