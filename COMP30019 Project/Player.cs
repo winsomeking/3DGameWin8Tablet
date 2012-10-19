@@ -158,7 +158,7 @@ namespace SharpDX_Windows_8_Abstraction
 
 
             // Apply velocity to position.
-            pos += vel * timeDelta;
+            //pos += vel * timeDelta;
 
             // Keep within the boundaries.
             //if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
