@@ -138,6 +138,7 @@
     <Compile Include="VisibleGameObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Rhino_modified.txt" />
     <None Include="Common\ReadMe.txt" />
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>

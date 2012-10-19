@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 using SharpDX;
 using Windows.UI.Input;
 using Windows.UI.Core;
 using Windows.System;
 using Windows.Devices.Sensors;
+using Windows.Storage;
+using Windows.Storage.Streams;
+
 
 // Check collision
 // Check
@@ -17,6 +21,8 @@ namespace SharpDX_Windows_8_Abstraction
     // Player class.
     class Player : VisibleGameObject
     {
+        private StreamReader text_model;
+
         private Vector3 vel;
         private Vector3 next_pos;
         private Vector3 next_pos_vector;
@@ -32,10 +38,12 @@ namespace SharpDX_Windows_8_Abstraction
         private bool rightDown;
         
         private float projectileSpeed = 20;
+        private float[] floatArray = new float[12 * 64223];
 
         private float angleXZ = 0;
-        
+
         public Player(Game game) : base(game) {
+            
             type = GameObjectType.Player;
             model = game.assets.GetModel("player", CreatePlayerModel);
             pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2) + 32, game.getTerrain().getGridlen() / 2);
@@ -47,7 +55,8 @@ namespace SharpDX_Windows_8_Abstraction
 
         public Model CreatePlayerModel()
         {
-            return game.assets.CreateTexturedCube("player.png", 1.0f);
+            readVerticesNormal();
+            return game.assets.CreateCustomModel(floatArray);
         }
 
         // Method to create projectile texture to give to newly created projectiles.
@@ -144,7 +153,7 @@ namespace SharpDX_Windows_8_Abstraction
                 
                 accelerationXZ = resultant_collision;
 
-                vel.Y = 0.0f;
+                vel.Y = -1/4 * vel.Y;
                 pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z);
 
             }
@@ -158,11 +167,80 @@ namespace SharpDX_Windows_8_Abstraction
 
 
             // Apply velocity to position.
-            //pos += vel * timeDelta;
+            pos += vel * timeDelta;
 
             // Keep within the boundaries.
             //if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
             //if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
+        }
+
+        public async void readVerticesNormal()
+        {
+            float[] floatArrayVertices = new float[3 * 64223];
+            float[] floatArrayNormal = new float[3 * 64223];
+            String[] line_read = new String[128446];
+            String[] temp = new String[5];
+            
+            int index = 0;
+            int indexVertices = 0;
+            int indexNormal = 0;
+
+            //settings
+            var _Path = @"Rhino_modified.txt";
+            var _Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+
+            // acquire file
+            var _File = await _Folder.GetFileAsync(_Path);
+
+            // read content
+            IList<String> _ReadThis = await Windows.Storage.FileIO.ReadLinesAsync(_File);
+
+            while (true)
+            {
+                
+                    
+                temp = _ReadThis[index].Split(' ');
+                // Check whether the first letter is "v"(Vertices) or "n"(Normal)
+                if (_ReadThis[index].StartsWith("v"))
+                {
+                    floatArrayVertices[indexVertices * 3] = System.Convert.ToSingle(temp[1]);
+                    floatArrayVertices[indexVertices * 3 + 1] = System.Convert.ToSingle(temp[2]);
+                    floatArrayVertices[indexVertices * 3 + 2] = System.Convert.ToSingle(temp[3]);
+                    indexVertices++;
+                }
+                else if (_ReadThis[index].StartsWith("n"))
+                {
+                    floatArrayNormal[indexNormal * 3] = System.Convert.ToSingle(temp[1]);
+                    floatArrayNormal[indexNormal * 3 + 1] = System.Convert.ToSingle(temp[2]);
+                    floatArrayNormal[indexNormal * 3 + 2] = System.Convert.ToSingle(temp[3]);
+                    indexNormal++;
+                }
+
+                index++;
+
+                // MAKE A BETTER NULL CATCHING METHOD
+                if (index == 128446)
+                {
+                    break;
+                }
+               
+            }
+
+            for (int i = 0; i < index/2; i++)
+            {
+                floatArray[i * 12] = floatArrayVertices[i * 3] / 10.0f;
+                floatArray[i * 12 + 1] = floatArrayVertices[i * 3 + 1] / 10.0f;
+                floatArray[i * 12 + 2] = floatArrayVertices[i * 3 + 2] / 10.0f;
+                floatArray[i * 12 + 3] = 1.0f;
+                floatArray[i * 12 + 4] = 0.4f;
+                floatArray[i * 12 + 5] = 0.4f;
+                floatArray[i * 12 + 6] = 0.4f;
+                floatArray[i * 12 + 7] = 1.0f;
+                floatArray[i * 12 + 8] = floatArrayNormal[i * 3];
+                floatArray[i * 12 + 9] = floatArrayNormal[i * 3 + 1];
+                floatArray[i * 12 + 10] = floatArrayNormal[i * 3 + 2];
+                floatArray[i * 12 + 11] = 1.0f;
+            }
         }
 
         // React to getting hit by an enemy bullet.

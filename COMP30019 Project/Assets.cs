@@ -200,6 +200,22 @@ namespace SharpDX_Windows_8_Abstraction
             }};
         }
 
+        // Create an arbitrarily sized box (rectangular prism) with individual textures for each face.
+        // Note that it is far more efficient to create fewer, more complex objects (i.e. a single cube rather than 6 squares)
+        // and this should be done whenever possible
+        public Model CreateCustomModel(float[] shapeArray)
+        {
+            Style style = styleDict[StyleType.Coloured];
+
+            // Return the model.
+            return new Model
+            {
+                shapeList = new Shape[]{
+                createShape(shapeArray, PrimitiveTopology.TriangleList, null, style),
+            }
+            };
+        }
+
         ///////////////////////////////////////////////////////////////////////
         public Model CreateTerrain(String textureName, float[] floatArray)
         {
