@@ -1,0 +1,55 @@
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\PS_COLOURED.cso
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\PS_TEXTURED.cso
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\VS_COLOURED.cso
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\VS_TEXTURED.cso
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\Assets\enemy projectile.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\Assets\enemy.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\Assets\player projectile.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\Assets\player.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\images\enemy projectile.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\images\enemy.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\images\player projectile.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\images\player.png
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\Coloured.fx
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\shaders\Textured.fx
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX_Windows_8_Abstraction.exe
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX_Windows_8_Abstraction.pdb
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\resources.pri
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\AppxManifest.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX_Windows_8_Abstraction.build.appxrecipe
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\CommonDX.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.D3DCompiler.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.Direct2D1.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.Direct3D11.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.DXGI.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.D3DCompiler.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.Direct2D1.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.Direct3D11.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Release\SharpDX.DXGI.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\App.g.i.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\App.g.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Common\StandardStyles.g.i.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Common\StandardStyles.g.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Console.g.i.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Console.g.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\MainPage.g.i.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\MainPage.g.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\XamlTypeInfo.g.cs
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\App.xaml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Common\StandardStyles.xaml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\Console.xaml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\MainPage.xaml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX_Windows_8_Abstraction.exe
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX_Windows_8_Abstraction.pdb
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX\en\SharpDX.Properties.Resources.resw
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX_Windows_8_Abstraction.csproj.GenerateResource.Cache
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX.pri
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\SharpDX\LanguageQualifiers.txt
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\priconfig.xml
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\layout.resfiles
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\resources.resfiles
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\pri.resfiles
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\LanguageQualifiers.txt
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Release\ProjectArchitectures.txt

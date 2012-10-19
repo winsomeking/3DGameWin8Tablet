@@ -86,7 +86,11 @@ namespace SharpDX_Windows_8_Abstraction
             return Matrix.Multiply(getView(),getProj());
 
         }
-
+        public Vector4 getPos()
+        {
+            Vector4 pos = new Vector4(mPosition.X,mPosition.Y,mPosition.Z,1.0f);
+            return pos;
+        }
         public void strafe(float dist)
         {
 

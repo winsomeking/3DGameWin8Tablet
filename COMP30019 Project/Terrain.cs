@@ -40,7 +40,12 @@ namespace SharpDX_Windows_8_Abstraction
         Vector4 brown = new Vector4(0.5f, 0.5f, 0.0f, 1.0f);
         Vector4 green = new Vector4(0.0f, 1.0f, 0.0f, 1.0f);
         Vector4 yellow = new Vector4(1.0f, 1.0f, 0.0f, 1.0f);
+        Vector4 darkYellow = new Vector4(184/255.0f,134/255.0f,11/255.0f,1.0f);
         Vector4 blue = new Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+        Vector4 lightBlue = new Vector4(135/255.0f,206/255.0f,1.0f,1.0f);
+
+
+        
 
         float WorldBottom = 100;
         float WorldTop = 0;
@@ -224,9 +229,17 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 return blue;
             }
+            else if (height < 30.0f)
+            {
+                return lightBlue;
+            }
             else if (height < 40.0f)
             {
                 return yellow;
+            }
+            else if (height < 50.0f)
+            {
+                return darkYellow;
             }
             else if (height < 60.0f)
             {

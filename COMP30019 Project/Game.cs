@@ -75,7 +75,30 @@ namespace SharpDX_Windows_8_Abstraction
         // (because it's + in Y and + in Z)
         Vector4 lightAmbCol = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
         Vector4 lightPntCol = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-        Vector4 lightPntPos = new Vector4(1.0f, 2.0f, -3.0f, 1.0f);
+        Vector4 lightPntPos = new Vector4(50.0f, 50.0f, -3.0f, 1.0f);
+
+
+        //cbuffer structure which is used by shaders
+        struct S_SHADER_GLOBALS
+        {
+            Matrix worldTransforms;
+            Matrix viewTransforms;
+            Vector4 cameraPosition;
+            Vector4 ambientColour;
+            Vector4 pointPosition;
+            Vector4 pointColour;
+            public S_SHADER_GLOBALS(Matrix wT, Matrix vT, Vector4 cP, Vector4 aC, Vector4 pP, Vector4 pC)
+            {
+                this.worldTransforms = wT;
+                this.viewTransforms = vT;
+                this.cameraPosition = cP;
+                this.ambientColour = aC;
+                this.pointPosition = pP;
+                this.pointColour = pC;
+            }
+        }
+
+
 
         // Constructor/initaliser for Game.
         public Game(MainPage mainPage, Assets assets, DeviceManager deviceManager)
@@ -121,7 +144,7 @@ namespace SharpDX_Windows_8_Abstraction
             view = Matrix.Identity;
             proj = Matrix.Identity;
             worldViewProj = Matrix.Identity;
-            constantBuffer = new SharpDX.Direct3D11.Buffer(deviceManager.DeviceDirect3D, Utilities.SizeOf<Matrix>(), ResourceUsage.Default, BindFlags.ConstantBuffer, CpuAccessFlags.None, ResourceOptionFlags.None, 0);
+            constantBuffer = new SharpDX.Direct3D11.Buffer(deviceManager.DeviceDirect3D, Utilities.SizeOf<S_SHADER_GLOBALS>(), ResourceUsage.Default, BindFlags.ConstantBuffer, CpuAccessFlags.None, ResourceOptionFlags.None, 0);
             deviceManager.ContextDirect3D.VertexShader.SetConstantBuffer(0, constantBuffer);
 
             // Set camera
@@ -251,11 +274,11 @@ namespace SharpDX_Windows_8_Abstraction
         // Main loop that executes every frame.
         public void Update()
         {
-
+          //FIX ME: uncomment this line of code to keep tracking the player.  
            cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
            cameraController.updateViewMatrix();
            view = cameraController.getView();
-
+                
             // Calculate timeDelta.
             time = clock.ElapsedMilliseconds / 1000f;
             var timeDelta = time - previousTime;
@@ -281,6 +304,10 @@ namespace SharpDX_Windows_8_Abstraction
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
 
+            Vector4 tempPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
+
+            S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getViewProj(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+            context.UpdateSubresource(ref shaderGlobals, constantBuffer);
             // Update game objects.
             foreach (var obj in gameObjects)
             {

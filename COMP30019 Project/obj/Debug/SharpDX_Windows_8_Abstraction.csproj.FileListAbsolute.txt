@@ -418,66 +418,6 @@ C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\resources.resfiles
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\pri.resfiles
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\LanguageQualifiers.txt
 C:\Users\COMP30019\Desktop\COMP30019 Project\obj\Debug\ProjectArchitectures.txt
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\player projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\player.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\PS_COLOURED.cso
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\PS_TEXTURED.cso
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\VS_COLOURED.cso
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\VS_TEXTURED.cso
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\enemy projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\enemy.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\player projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\player.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\Coloured.fx
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\Textured.fx
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.build.appxrecipe
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\CommonDX.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.D3DCompiler.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.Direct2D1.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.Direct3D11.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.DXGI.dll
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.D3DCompiler.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.Direct2D1.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.Direct3D11.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.DXGI.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.csprojResolveAssemblyReference.cache
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\App.g.i.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\App.g.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Common\StandardStyles.g.i.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Common\StandardStyles.g.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Console.g.i.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Console.g.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\MainPage.g.i.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\MainPage.g.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\XamlTypeInfo.g.cs
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\App.xaml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Common\StandardStyles.xaml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\Console.xaml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\MainPage.xaml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.exe
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.pdb
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX\en\SharpDX.Properties.Resources.resw
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.csproj.GenerateResource.Cache
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX.pri
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX\LanguageQualifiers.txt
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\priconfig.xml.intermediate
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\layout.resfiles.intermediate
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\resources.resfiles.intermediate
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\pri.resfiles.intermediate
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\priconfig.xml
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\layout.resfiles
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\resources.resfiles
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\pri.resfiles
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\LanguageQualifiers.txt
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\ProjectArchitectures.txt
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy projectile.png
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy.png
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\player projectile.png
