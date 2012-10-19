@@ -35,6 +35,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 using SharpDX;
 using SharpDX.Direct3D;
 using SharpDX.Direct3D11;
@@ -86,28 +87,28 @@ namespace SharpDX_Windows_8_Abstraction
             Window.Current.Content = swapchainPanel;
             Window.Current.Activate();
 
-            // Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
-            target = new SwapChainBackgroundPanelTarget(swapchainPanel);
+            //// Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
+            //target = new SwapChainBackgroundPanelTarget(swapchainPanel);
 
-            // Initializes the Swap Chain target, game and game assets when the device manager is initialized
-            deviceManager.OnInitialize += (dm) =>
-                {
-                    target.Initialize(dm);
-                    assets = new Assets(dm);
-                    game = new Game(swapchainPanel, assets, dm);
-                };
+            //// Initializes the Swap Chain target, game and game assets when the device manager is initialized
+            //deviceManager.OnInitialize += (dm) =>
+            //    {
+            //        target.Initialize(dm);
+            //        assets = new Assets(dm);
+            //        game = new Game(swapchainPanel, assets, dm);
+            //    };
 
-            // Initialize the device manager and all registered deviceManager.OnInitialize 
-            deviceManager.Initialize(DisplayProperties.LogicalDpi);
+            //// Initialize the device manager and all registered deviceManager.OnInitialize 
+            //deviceManager.Initialize(DisplayProperties.LogicalDpi);
 
-            // Render the game objects within the CoreWindow
-            target.OnRender += game.Render;
+            //// Render the game objects within the CoreWindow
+            //target.OnRender += game.Render;
 
-            // Setup rendering callback
-            CompositionTarget.Rendering += CompositionTarget_Rendering;
+            //// Setup rendering callback
+            //CompositionTarget.Rendering += CompositionTarget_Rendering;
 
-            // Callback on DpiChanged
-            DisplayProperties.LogicalDpiChanged += DisplayProperties_LogicalDpiChanged;
+            //// Callback on DpiChanged
+            //DisplayProperties.LogicalDpiChanged += DisplayProperties_LogicalDpiChanged;
         }
 
         void DisplayProperties_LogicalDpiChanged(object sender)

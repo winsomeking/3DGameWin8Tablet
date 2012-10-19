@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-19T01:49:56.612</Modified>
+      <Modified>2012-10-19T07:45:00.491</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-19T01:49:55.893</Modified>
+      <Modified>2012-10-19T07:45:00.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-19T01:49:55.865</Modified>
+      <Modified>2012-10-19T07:45:00.253</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -72,6 +72,14 @@
       <PackagePath>SharpDX.DXGI.xml</PackagePath>
       <Modified>2012-06-09T05:04:22.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\background.jpg">
+      <PackagePath>images\background.jpg</PackagePath>
+      <Modified>2012-10-19T05:04:00.941</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\mainpageBG.jpg">
+      <PackagePath>images\mainpageBG.jpg</PackagePath>
+      <Modified>2012-10-19T06:59:02.542</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\enemy projectile.png">
       <PackagePath>images\enemy projectile.png</PackagePath>
       <Modified>2012-09-09T16:07:24.000</Modified>
@@ -111,23 +119,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-19T01:49:54.544</Modified>
+      <Modified>2012-10-19T07:44:58.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-19T01:49:54.579</Modified>
+      <Modified>2012-10-19T07:44:58.525</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-19T01:49:54.527</Modified>
+      <Modified>2012-10-19T07:44:58.469</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-19T01:49:54.562</Modified>
+      <Modified>2012-10-19T07:44:58.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
-      <Modified>2012-10-18T02:42:54.866</Modified>
+      <Modified>2012-10-19T04:38:42.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Textured.fx">
       <PackagePath>shaders\Textured.fx</PackagePath>
@@ -145,13 +153,17 @@
       <PackagePath>Console.xaml</PackagePath>
       <Modified>2012-09-10T13:28:36.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\EndPage.xaml">
+      <PackagePath>EndPage.xaml</PackagePath>
+      <Modified>2012-10-19T06:35:54.422</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2012-09-10T10:23:54.000</Modified>
+      <Modified>2012-10-19T07:11:18.451</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-19T01:49:56.585</Modified>
+      <Modified>2012-10-19T07:01:34.195</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

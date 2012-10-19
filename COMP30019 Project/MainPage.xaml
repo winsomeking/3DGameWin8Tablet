@@ -7,5 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid/>
+    <Grid Margin="10,0,-28,-109">
+        <Grid.Background>
+            <ImageBrush ImageSource="images/mainpageBG.jpg"/>
+        </Grid.Background>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Background="#FF2F1C51" Opacity="0.7"/>
+
+    </Grid>
 </SwapChainBackgroundPanel>
