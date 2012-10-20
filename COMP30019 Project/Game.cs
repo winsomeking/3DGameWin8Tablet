@@ -32,6 +32,7 @@ namespace SharpDX_Windows_8_Abstraction
         // Time keeping.
         public Stopwatch clock;
         public float time;
+        public float game_time_limit;
         private float previousTime;
 
         // Transformation matrices.
@@ -104,6 +105,7 @@ namespace SharpDX_Windows_8_Abstraction
         public Game(MainPage mainPage, Assets assets, DeviceManager deviceManager)
         {
             // Set references to 
+            game_time_limit = 60.0f; // 1 minute time limit
             this.mainPage = mainPage;
             this.assets = assets;
             this.deviceManager = deviceManager;
@@ -284,6 +286,18 @@ namespace SharpDX_Windows_8_Abstraction
             var timeDelta = time - previousTime;
             previousTime = time;
 
+            // Game time limiter
+            game_time_limit -= timeDelta;
+            if (game_time_limit <= 0.0f)
+            {
+                // Game is finished
+                Remove(player);
+            }
+            else if (this.Count(GameObjectType.Enemy) == 0)
+            {
+                // Reset the game timer
+            }
+
             flushAddedAndRemovedGameObjects();
 
             // Update game objects.
@@ -303,19 +317,22 @@ namespace SharpDX_Windows_8_Abstraction
             // Clear depth buffer.
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
-
-            Vector4 tempPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
-
+            
             S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getViewProj(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
             context.UpdateSubresource(ref shaderGlobals, constantBuffer);
             // Update game objects.
             foreach (var obj in gameObjects)
             {
-                obj.Render(render);
+                if (obj.type == GameObjectType.Player)
+                {
+                    obj.Render(render, player.getAngleYZ(), -player.getAngleXZ(), player.getAngleYX());
+//                    obj.Render(render, 0, -player.getAngleXZ(), player.getAngleYX());
+                }
+                else
+                {
+                    obj.Render(render, 0, 0, 0);
+                }
             }
-
-            // Render the terrain
-            // FILL IN
         }
 
 

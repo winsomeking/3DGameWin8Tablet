@@ -22,10 +22,10 @@ namespace SharpDX_Windows_8_Abstraction
         }
 
         // Draw the model in the position having undergone the local transformation.
-        public override void Render(TargetBase render)
+        public override void Render(TargetBase render, float rotX, float rotY, float rotZ)
         {
             game.PushWorldMatrix();
-            game.world *= transformation * Matrix.Translation(pos);
+            game.world *= transformation * Matrix.RotationX(rotX) * Matrix.RotationZ(rotZ) * Matrix.RotationY(rotY) * Matrix.Translation(pos);
 
             game.updateConstantBuffer();
 

@@ -59,7 +59,7 @@ namespace SharpDX_Windows_8_Abstraction
             
         }
 
-        public virtual void Render(TargetBase render)
+        public virtual void Render(TargetBase render, float rotX, float rotY, float rotZ)
         {
 
         }
