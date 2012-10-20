@@ -1,0 +1,23 @@
+Assets\enemy projectile.png
+Assets\enemy.png
+Assets\player projectile.png
+Assets\player.png
+Assets\SplashScreen.png
+App.xaml
+Common\StandardStyles.xaml
+Console.xaml
+EndPage.xaml
+MainPage.xaml
+images\background.jpg
+images\enemy projectile.png
+images\enemy.png
+images\mainpageBG.jpg
+images\player projectile.png
+images\player.png
+Rhino_modified.txt
+shaders\Coloured.fx
+shaders\PS_COLOURED.cso
+shaders\PS_TEXTURED.cso
+shaders\Textured.fx
+shaders\VS_COLOURED.cso
+shaders\VS_TEXTURED.cso

@@ -12,6 +12,7 @@ using Windows.UI.Input;
 using Windows.UI.Core;
 using Windows.System;
 using Windows.Devices.Sensors;
+using Windows.UI.Xaml.Controls;
 using Buffer = SharpDX.Direct3D11.Buffer;
 
 namespace SharpDX_Windows_8_Abstraction
@@ -76,22 +77,21 @@ namespace SharpDX_Windows_8_Abstraction
         // (because it's + in Y and + in Z)
         Vector4 lightAmbCol = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
         Vector4 lightPntCol = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-        Vector4 lightPntPos = new Vector4(50.0f, 50.0f, -3.0f, 1.0f);
-
+      //  Vector4 lightPntPos =  new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f)// new Vector4(10.0f, 10.0f, -3.0f, 1.0f);
+        Vector4 lightPntPos = new Vector4();
 
         //cbuffer structure which is used by shaders
         struct S_SHADER_GLOBALS
         {
-            Matrix worldTransforms;
-            Matrix viewTransforms;
+            Matrix projectionMatrix;
             Vector4 cameraPosition;
             Vector4 ambientColour;
             Vector4 pointPosition;
             Vector4 pointColour;
-            public S_SHADER_GLOBALS(Matrix wT, Matrix vT, Vector4 cP, Vector4 aC, Vector4 pP, Vector4 pC)
+            
+            public S_SHADER_GLOBALS(Matrix pM, Vector4 cP, Vector4 aC, Vector4 pP, Vector4 pC)
             {
-                this.worldTransforms = wT;
-                this.viewTransforms = vT;
+                this.projectionMatrix = pM;
                 this.cameraPosition = cP;
                 this.ambientColour = aC;
                 this.pointPosition = pP;
@@ -163,10 +163,12 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Create game objects.
             player = new Player(this);
+            lightPntPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
             cameraController.lookAt(new Vector3(player.pos.X, player.pos.Y + 30, player.pos.Z - 20), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
             Add(player);
             Add(game_terrain);
             Add(new EnemyController(this));
+
         }
 
 
@@ -254,7 +256,16 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 cameraController.rotateY(0.005f);
             }
+            else if (arg.VirtualKey == VirtualKey.S)
+            {
+                var rootFrame = new Frame();
+                rootFrame.Navigate(typeof(EndPage));
 
+                // Place the frame in the current Window and ensure that it is active
+                Window.Current.Content = rootFrame;
+                Window.Current.Activate();
+
+            }
 
             // Pass key events to the game objects.
             foreach (var obj in gameObjects)
@@ -277,7 +288,7 @@ namespace SharpDX_Windows_8_Abstraction
         public void Update()
         {
           //FIX ME: uncomment this line of code to keep tracking the player.  
-           cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+          // cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
            cameraController.updateViewMatrix();
            view = cameraController.getView();
                 
@@ -317,9 +328,24 @@ namespace SharpDX_Windows_8_Abstraction
             // Clear depth buffer.
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
+<<<<<<< HEAD
             
             S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getViewProj(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+=======
+
+            Vector4 tempPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
+
+            S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+>>>>>>> 9fabc13bc7d7f8e5139f5b5ef8c29040394692dd
             context.UpdateSubresource(ref shaderGlobals, constantBuffer);
+            //var worldInvTrp = world;
+            //worldInvTrp.Invert();
+            //worldInvTrp.Transpose();
+            //world.Transpose();
+
+            //S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(world, worldInvTrp, cameraController.getView(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+            //context.UpdateSubresource(ref shaderGlobals, constantBuffer);
+                
             // Update game objects.
             foreach (var obj in gameObjects)
             {

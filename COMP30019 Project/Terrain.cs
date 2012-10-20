@@ -201,24 +201,63 @@ namespace SharpDX_Windows_8_Abstraction
             vertices[grid_len * grid_len * 6 + 3] = new Vertices(0, 0, grid_len, red);
             vertices[grid_len * grid_len * 6 + 4] = new Vertices(grid_len, 0, grid_len, red);
             vertices[grid_len * grid_len * 6 + 5] = new Vertices(grid_len, 0, 0, red);
+
+
+            //FIX ME: Add normal calculation here. It should be normalised.
+            
+
+
+
+
             
             for (int i = 0; i < grid_len * grid_len * 6 + 6; i++)
             {
-                floatArray[i * 12] = (float)vertices[i].x;
-                floatArray[i * 12 + 1] = vertices[i].y;
+                Vector3 faceNormal = new Vector3();
+
+                if (i % 3 == 0)
+                {
+                    Vector3 p0 = new Vector3(vertices[i].x,vertices[i].y,vertices[i].z);
+                    Vector3 p1 = new Vector3(vertices[i+1].x, vertices[i+1].y, vertices[i+1].z);
+                    Vector3 p2 = new Vector3(vertices[i+2].x, vertices[i+2].y, vertices[i+2].z);
+                    
+                    faceNormal  = computeFaceNormal(p0,p1,p2);
+                }
+                
+                floatArray[i * 12]     = (float)vertices[i].x;
+                floatArray[i * 12 + 1] = (float)vertices[i].y;
                 floatArray[i * 12 + 2] = (float)vertices[i].z;
                 floatArray[i * 12 + 3] = (float)vertices[i].m;
                 floatArray[i * 12 + 4] = vertices[i].color[0];
                 floatArray[i * 12 + 5] = vertices[i].color[1];
                 floatArray[i * 12 + 6] = vertices[i].color[2];
                 floatArray[i * 12 + 7] = vertices[i].color[3];
-                floatArray[i * 12 + 8] = vertices[i].nx;
-                floatArray[i * 12 + 9] = vertices[i].ny;
-                floatArray[i * 12 + 10] = vertices[i].nz;
-                floatArray[i * 12 + 11] = vertices[i].nm;
+
+                floatArray[i * 12 + 8]  =  faceNormal.X; //vertices[i].nx;
+                floatArray[i * 12 + 9]  =  faceNormal.Y; //vertices[i].ny;
+                floatArray[i * 12 + 10] =  faceNormal.Z; //vertices[i].nz;
+                floatArray[i * 12 + 11] =  1;             //vertices[i].nm;
+
+
             }
             
+           
+            
+            
             model = game.assets.CreateTerrain("terrain", floatArray);
+        }
+
+        private Vector3 computeFaceNormal(Vector3 p0, Vector3 p1, Vector3 p2)
+        {
+
+            Vector3 u = p1 - p0;
+            Vector3 v = p2 - p0;
+
+            Vector3 tempU = new Vector3(u.X,u.Y,u.Z);
+            Vector3 tempV = new Vector3(v.X,v.Y,v.Z);
+
+            Vector3 normalisedVector = Vector3.Normalize(Vector3.Cross(tempU, tempV));
+            //Vector4 normalisedVector     = new Vector4(normalisedVectorTemp.X,normalisedVectorTemp.Y,normalisedVectorTemp.Z,1);
+            return normalisedVector;
         }
 
         protected Vector4 ColorChoose(float height)
