@@ -11,6 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="images/mainpageBG.jpg"/>
         </Grid.Background>
+<<<<<<< HEAD
         <Button x:ConnectionId='1' Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312"                        FontSize="44.667" Opacity="0.7">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,6 +20,9 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+=======
+        <Button x:ConnectionId='1' Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312"                        FontSize="44.667" Background="#FF2F1C51" Opacity="0.7"/>
+>>>>>>> 088aa782b36364c847be09310790582cd4a3f2f7
 
     </Grid>
 </SwapChainBackgroundPanel>

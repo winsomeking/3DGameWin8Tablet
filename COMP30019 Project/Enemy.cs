@@ -23,20 +23,24 @@ namespace SharpDX_Windows_8_Abstraction
             type = GameObjectType.Enemy;
             model = game.assets.GetModel("ship", CreateEnemyModel);
             this.pos = pos;
+            game.resetTimeLimit();
 
-            setFireTimer();
+            //setFireTimer();
         }
 
+        /*
         private void setFireTimer()
         {
             fireTimer = fireWaitMin + (float)game.random.NextDouble() * (fireWaitMax - fireWaitMin);
         }
+        */
 
         public Model CreateEnemyModel()
         {
-            return game.assets.CreateTexturedCube("enemy.png", 0.5f);
+            return game.assets.CreateTexturedCube("Target.gif", 1.0f);
         }
 
+        /*
         private Model CreateEnemyProjectileModel()
         {
             return game.assets.CreateTexturedBox("enemy projectile.png", new Vector3(0.2f, 0.2f, 0.4f));
@@ -60,6 +64,7 @@ namespace SharpDX_Windows_8_Abstraction
                 GameObjectType.Player
             ));
         }
+        */
 
         public void Hit()
         {

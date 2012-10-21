@@ -112,7 +112,7 @@ namespace SharpDX_Windows_8_Abstraction
         public Game(MainPage mainPage, Assets assets, DeviceManager deviceManager)
         {
             // Set references to 
-            game_time_limit = 60.0f; // 1 minute time limit
+            game_time_limit = 90.0f; // 1 minute time limit
             this.mainPage = mainPage;
             this.assets = assets;
             this.deviceManager = deviceManager;
@@ -377,10 +377,6 @@ namespace SharpDX_Windows_8_Abstraction
                 // Time is up, game is finished
                 Remove(player);
             }
-            else if (this.Count(GameObjectType.Enemy) == 0)
-            {
-                // Reset the game timer
-            }
 
             flushAddedAndRemovedGameObjects();
 
@@ -547,6 +543,11 @@ namespace SharpDX_Windows_8_Abstraction
         public float getAccelX()
         {
             return input.getAccelReading("x");
+        }
+
+        public void resetTimeLimit()
+        {
+            game_time_limit = 90.0f;
         }
     }
 }

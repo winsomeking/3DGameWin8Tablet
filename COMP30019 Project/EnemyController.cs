@@ -38,7 +38,7 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 int x = rand.Next(0, game.getTerrain().getGridlen());
                 int z = rand.Next(0, game.getTerrain().getGridlen());
-                game.Add(new Enemy(game, new Vector3(x, game.getTerrain().getWorldHeight(x,z)+1.0f, z)));
+                game.Add(new Enemy(game, new Vector3(x, game.getTerrain().getWorldHeight(x,z)+2.0f, z)));
             }
 
         }

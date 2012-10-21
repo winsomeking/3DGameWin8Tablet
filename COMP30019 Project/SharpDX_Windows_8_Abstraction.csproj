@@ -145,6 +145,9 @@
     <Content Include="Assets\bigLogo.jpg" />
     <Content Include="Assets\logo.jpg" />
     <Content Include="Assets\smallLogo.jpg" />
+    <Content Include="images\GameOver.jpg" />
+    <Content Include="images\MainMenu.jpg" />
+    <Content Include="images\Target.gif" />
     <Content Include="Assets\splashView.jpg" />
     <Content Include="Rhino_modified.txt" />
     <None Include="Common\ReadMe.txt" />
@@ -152,16 +155,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="images\background.jpg" />
-    <Content Include="images\enemy projectile.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="images\enemy.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="images\mainpageBG.jpg" />
-    <Content Include="images\player projectile.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="shaders\PS_COLOURED.cso">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -229,9 +223,6 @@
     </Content>
     <Content Include="Assets\player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="images\player.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\Coloured.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
