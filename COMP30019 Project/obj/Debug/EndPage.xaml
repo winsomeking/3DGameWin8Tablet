@@ -11,7 +11,22 @@
         <Grid.Background>
             <ImageBrush ImageSource="images/background.jpg"/>
         </Grid.Background>
-        <Button x:ConnectionId='1' Content="Play Again" HorizontalAlignment="Left" Margin="491,575,0,0" VerticalAlignment="Top" Height="154" Width="414" FontSize="44.667" Background="#FF143434"                       />
+        <Button x:ConnectionId='1' Content="Play Again" HorizontalAlignment="Left" Margin="481,333,0,0" VerticalAlignment="Top" Height="154" Width="414" FontSize="44.667"                       >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF70C164"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:ConnectionId='2' Content="Exit" HorizontalAlignment="Left" Margin="481,551,0,0" VerticalAlignment="Top" Width="414" Height="139"                        FontSize="44.667" Opacity="0.7">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF58A284"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Page>

@@ -11,7 +11,14 @@
         <Grid.Background>
             <ImageBrush ImageSource="images/mainpageBG.jpg"/>
         </Grid.Background>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Background="#FF2F1C51" Opacity="0.7"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Opacity="0.7">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFB63E3E" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </SwapChainBackgroundPanel>

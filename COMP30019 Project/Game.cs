@@ -159,6 +159,7 @@ namespace SharpDX_Windows_8_Abstraction
             console = new Console();
             mainPage.SetLayout(console);
 
+
             // Create game objects.
             player = new Player(this);
             lightPntPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);

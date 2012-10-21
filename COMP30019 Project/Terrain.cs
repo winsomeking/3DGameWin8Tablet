@@ -157,7 +157,11 @@ namespace SharpDX_Windows_8_Abstraction
         // Return the height value (i.e. "y" value)
         public float getWorldHeight(int x, int z)
         {
-            return world[x, z];
+            
+            if(x<=256 && z<= 256)
+               return world[x, z];
+            else 
+                return world[(256-x%256),(256-z%256)];
         }
 
         // Return the size value of the map 

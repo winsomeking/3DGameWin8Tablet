@@ -23,9 +23,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="SharpDX_Windows_8_Abstraction.exe" EntryPoint="SharpDX_Windows_8_AbstractionApp">
-      <VisualElements DisplayName="SharpDX_Windows_8_Abstraction" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Abstraction of SharpDX" ForegroundText="light" BackgroundColor="#222222">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="Over the moon" Logo="Assets\Logo.jpg" SmallLogo="Assets\smallLogo.jpg" Description="Over the moon" ForegroundText="light" BackgroundColor="#222222">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\bigLogo.jpg" />
+        <SplashScreen Image="Assets\splashView.jpg" BackgroundColor="#73BF73" />
       </VisualElements>
     </Application>
   </Applications>
