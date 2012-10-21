@@ -332,7 +332,10 @@ namespace SharpDX_Windows_8_Abstraction
 
             //if (player.pos.Y < game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)))
             //{
+            
+            //FIX ME: uncomment me to make the camera still.
             cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f - 10.0f * (prevDifferenceY), (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            
             //}
             //else
             //{
