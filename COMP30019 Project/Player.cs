@@ -35,10 +35,10 @@ namespace SharpDX_Windows_8_Abstraction
         private float resultant_collision;
         private int score = 0;
 
-        private float speedXZ = 8.0f;
+        private float speedXZ = 15.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -0.2f;
+        private float gravity = -0.5f;
 
         /*
         private bool leftDown;
@@ -156,11 +156,11 @@ namespace SharpDX_Windows_8_Abstraction
             vel.Y += accelerationY;
 
             // If accelerometer is tilted, then 
-            angleXZ = angleXZ + game.getAccelX() * 0.1f;
-
+            //angleXZ = angleXZ + game.getAccelX() * 0.1f;
+            angleXZ += game.getAccelX();
 
             /* CHECK COLLISION WITH TERRAIN */
-            if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.0f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -10.0f)
+            if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.5f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -10.0f)
             {
                 // COLLISION in Y axis!
                 // Check for angle of terrain and player XYZ angle
@@ -176,7 +176,7 @@ namespace SharpDX_Windows_8_Abstraction
 
                 accelerationXZ = resultant_collision;
                 vel.Y = -(6.0f/10.0f) * vel.Y;
-                pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) + 1.0f;
+                pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) + 1.5f;
 
             }
             else
@@ -198,6 +198,7 @@ namespace SharpDX_Windows_8_Abstraction
                     {
                         case GameObjectType.Enemy:
                             ((Enemy)obj).Hit();
+                            speedXZ += 2.0f;
                             break;
                     }
 
@@ -274,9 +275,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 13] = floatArrayVertices[intArrayFace[i * 6] * 3 + 1];
                 floatArray[i * 36 + 14] = floatArrayVertices[intArrayFace[i * 6] * 3 + 2];
                 floatArray[i * 36 + 15] = 1.0f;
-                floatArray[i * 36 + 16] = 0.4f;
-                floatArray[i * 36 + 17] = 0.4f;
-                floatArray[i * 36 + 18] = 0.4f;
+                floatArray[i * 36 + 16] = 1.0f;
+                floatArray[i * 36 + 17] = 0.0f;
+                floatArray[i * 36 + 18] = 0.0f;
                 floatArray[i * 36 + 19] = 1.0f;
                 floatArray[i * 36 + 20] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3];
                 floatArray[i * 36 + 21] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 1];
@@ -287,9 +288,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 1] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3 + 1];
                 floatArray[i * 36 + 2] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3 + 2];
                 floatArray[i * 36 + 3] = 1.0f;
-                floatArray[i * 36 + 4] = 0.4f;
-                floatArray[i * 36 + 5] = 0.4f;
-                floatArray[i * 36 + 6] = 0.4f;
+                floatArray[i * 36 + 4] = 0.0f;
+                floatArray[i * 36 + 5] = 1.0f;
+                floatArray[i * 36 + 6] = 0.0f;
                 floatArray[i * 36 + 7] = 1.0f;
                 floatArray[i * 36 + 8] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3];
                 floatArray[i * 36 + 9] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 1];
@@ -300,9 +301,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 25] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3 + 1];
                 floatArray[i * 36 + 26] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3 + 2];
                 floatArray[i * 36 + 27] = 1.0f;
-                floatArray[i * 36 + 28] = 0.4f;
-                floatArray[i * 36 + 29] = 0.4f;
-                floatArray[i * 36 + 30] = 0.4f;
+                floatArray[i * 36 + 28] = 0.0f;
+                floatArray[i * 36 + 29] = 0.0f;
+                floatArray[i * 36 + 30] = 1.0f;
                 floatArray[i * 36 + 31] = 1.0f;
                 floatArray[i * 36 + 32] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3];
                 floatArray[i * 36 + 33] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 1];

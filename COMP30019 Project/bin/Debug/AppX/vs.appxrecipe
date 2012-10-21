@@ -5,7 +5,7 @@
     <WindowsUser>DVDLesher</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>F45960F0DC13D94F90D2B50DA84A50783B6AF6CCC16E724DE28F420B1ADEB04E</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>5AF29E4E6A8F6F1EC2413F449A4D4C58DAF1DB5E1540BDBFFA8E32A8510BDBC5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_1.0.0.0_neutral__4z88w3h258m6t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_4z88w3h258m6t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c</RegisteredPackageID>
@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-21T18:20:54.430</Modified>
+      <Modified>2012-10-21T20:18:43.916</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-21T18:20:54.366</Modified>
+      <Modified>2012-10-21T20:18:43.825</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-21T18:20:54.353</Modified>
+      <Modified>2012-10-21T20:18:43.812</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -72,9 +72,13 @@
       <PackagePath>SharpDX.DXGI.xml</PackagePath>
       <Modified>2012-06-09T15:04:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Rhino_modified.txt">
-      <PackagePath>Rhino_modified.txt</PackagePath>
-      <Modified>2012-10-19T17:54:51.135</Modified>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\GameOver.jpg">
+      <PackagePath>images\GameOver.jpg</PackagePath>
+      <Modified>2012-10-21T20:04:46.837</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\MainMenu.jpg">
+      <PackagePath>images\MainMenu.jpg</PackagePath>
+      <Modified>2012-10-21T20:05:01.321</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\background.jpg">
       <PackagePath>images\background.jpg</PackagePath>
@@ -84,17 +88,29 @@
       <PackagePath>images\mainpageBG.jpg</PackagePath>
       <Modified>2012-10-20T21:27:14.268</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\enemy projectile.png">
-      <PackagePath>images\enemy projectile.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\Target.gif">
+      <PackagePath>images\Target.gif</PackagePath>
+      <Modified>2012-10-21T18:53:32.278</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\enemy.png">
-      <PackagePath>images\enemy.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Rhino_modified.txt">
+      <PackagePath>Rhino_modified.txt</PackagePath>
+      <Modified>2012-10-19T17:54:51.135</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\player projectile.png">
-      <PackagePath>images\player projectile.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
+      <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
+      <Modified>2012-10-21T20:18:42.853</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
+      <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
+      <Modified>2012-10-21T20:18:42.879</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
+      <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
+      <Modified>2012-10-21T20:18:42.840</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
+      <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
+      <Modified>2012-10-21T20:18:42.867</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy projectile.png">
       <PackagePath>Assets\enemy projectile.png</PackagePath>
@@ -116,26 +132,6 @@
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-04-09T12:33:26.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\player.png">
-      <PackagePath>images\player.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
-      <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T18:20:53.392</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
-      <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T18:20:53.418</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
-      <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T18:20:53.380</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
-      <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T18:20:53.406</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
@@ -167,7 +163,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-21T17:58:28.596</Modified>
+      <Modified>2012-10-21T20:18:43.900</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -52,7 +52,7 @@ namespace SharpDX_Windows_8_Abstraction
 
         // roughness factor determines what the terrain looks like. The bigger it
         // is, the more we have exaggerated mountains and ravines.
-        const float roughness = 1.0f;
+        const float roughness = 0.6f;
         // TODO: what value should this be? Perhaps initialise it in the constructor?
 
         // random number generator.
