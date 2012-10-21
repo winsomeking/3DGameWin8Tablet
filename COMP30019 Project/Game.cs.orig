@@ -168,6 +168,7 @@ namespace SharpDX_Windows_8_Abstraction
             console = new Console();
             mainPage.SetLayout(console);
 
+
             // Create game objects.
             player = new Player(this);
             lightPntPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
@@ -322,7 +323,14 @@ namespace SharpDX_Windows_8_Abstraction
 
             //if (player.pos.Y < game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)))
             //{
+<<<<<<< HEAD
+            
+            //FIX ME: uncomment me to make the camera still.
+            cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f - 10.0f * (prevDifferenceY), (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            
+=======
             cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f - 10.0f * ((float)Math.Exp(-Math.Abs(prevCameraAngleY))), (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
             //}
             //else
             //{

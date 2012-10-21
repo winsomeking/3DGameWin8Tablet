@@ -17,28 +17,28 @@
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:19.589</Modified>
+      <Modified>2012-10-21T07:22:01.420</Modified>
 =======
-      <Modified>2012-10-21T17:51:51.073</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:54.430</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:19.480</Modified>
+      <Modified>2012-10-21T07:18:47.431</Modified>
 =======
-      <Modified>2012-10-21T17:51:51.009</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:54.366</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:19.460</Modified>
+      <Modified>2012-10-21T07:18:47.400</Modified>
 =======
-      <Modified>2012-10-21T17:51:50.996</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:54.353</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -151,38 +151,38 @@
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:18.022</Modified>
+      <Modified>2012-10-21T07:22:01.186</Modified>
 =======
-      <Modified>2012-10-21T17:51:49.975</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:53.392</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:18.058</Modified>
+      <Modified>2012-10-21T07:22:01.217</Modified>
 =======
-      <Modified>2012-10-21T17:51:50.000</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:53.418</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:18.005</Modified>
+      <Modified>2012-10-21T07:22:01.170</Modified>
 =======
-      <Modified>2012-10-21T17:51:49.962</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:53.380</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
 <<<<<<< HEAD
-      <Modified>2012-10-21T06:34:18.041</Modified>
+      <Modified>2012-10-21T07:22:01.201</Modified>
 =======
-      <Modified>2012-10-21T17:51:49.988</Modified>
->>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
+      <Modified>2012-10-21T18:20:53.406</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
-      <Modified>2012-10-19T04:38:42.125</Modified>
+      <Modified>2012-10-21T06:45:36.026</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Textured.fx">
       <PackagePath>shaders\Textured.fx</PackagePath>
@@ -210,7 +210,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-21T06:25:48.993</Modified>
+<<<<<<< HEAD
+      <Modified>2012-10-21T07:07:59.588</Modified>
+=======
+      <Modified>2012-10-21T17:58:28.596</Modified>
+>>>>>>> a1fc28255e666bcfc9807cc89d500a0500cf4466
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

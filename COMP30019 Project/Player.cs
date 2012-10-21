@@ -38,7 +38,7 @@ namespace SharpDX_Windows_8_Abstraction
         private float speedXZ = 8.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -1.0f;
+        private float gravity = -0.2f;
 
         /*
         private bool leftDown;
@@ -114,11 +114,11 @@ namespace SharpDX_Windows_8_Abstraction
             {
                 case VirtualKey.Left: 
                     angleXZ += 0.1f;
-                    if (angleXZ > Math.PI) { angleXZ -= (float)Math.PI * 2.0f;}
+                    //if (angleXZ > Math.PI) { angleXZ -= (float)Math.PI * 2.0f;}
                     break;
                 case VirtualKey.Right: 
                     angleXZ -= 0.1f;
-                    if (angleXZ < -Math.PI) { angleXZ += (float)Math.PI * 2.0f; }
+                    //if (angleXZ < -Math.PI) { angleXZ += (float)Math.PI * 2.0f; }
                     break;
                 case VirtualKey.Space: accelerate(); break;
             }
@@ -175,7 +175,7 @@ namespace SharpDX_Windows_8_Abstraction
                 resultant_collision = SharpDX.Vector3.Dot(normalized_vel, next_pos_vector);
 
                 accelerationXZ = resultant_collision;
-                vel.Y = -(0.0f/10.0f) * vel.Y;
+                vel.Y = -(6.0f/10.0f) * vel.Y;
                 pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) + 1.0f;
 
             }
@@ -185,13 +185,13 @@ namespace SharpDX_Windows_8_Abstraction
                 accelerationXZ = accelerationXZ * 0.8f;
             }
 
-            pos.Y = game.getTerrain().getWorldHeight((int)pos.X,(int)pos.Z);
+            //pos.Y = game.getTerrain().getWorldHeight((int)pos.X,(int)pos.Z);
 
             /* CHECK COLLISION WITH OBSTACLE */
             foreach (var obj in game.gameObjects)
             {
                 // Check of object is the target type and if it's within the projectile hit range.
-                if (obj.type == GameObjectType.Enemy && ((((VisibleGameObject)obj).pos - pos).LengthSquared() <= 2.0f))
+                if (obj.type == GameObjectType.Enemy && ((((VisibleGameObject)obj).pos - pos).LengthSquared() <= 5.0f))
                 {
                     // Cast to object class and call Hit method.
                     switch (obj.type)
