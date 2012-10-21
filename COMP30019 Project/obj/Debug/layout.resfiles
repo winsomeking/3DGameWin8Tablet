@@ -12,11 +12,10 @@ Console.xaml
 EndPage.xaml
 MainPage.xaml
 images\background.jpg
-images\enemy projectile.png
-images\enemy.png
+images\GameOver.jpg
+images\MainMenu.jpg
 images\mainpageBG.jpg
-images\player projectile.png
-images\player.png
+images\Target.gif
 Rhino_modified.txt
 shaders\Coloured.fx
 shaders\PS_COLOURED.cso

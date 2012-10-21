@@ -442,10 +442,6 @@ C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\enemy.png
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\player projectile.png
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Assets\player.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\enemy projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\enemy.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\player projectile.png
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\images\player.png
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\Coloured.fx
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\shaders\Textured.fx
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe
@@ -535,3 +531,8 @@ C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\layout.resfi
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\resources.resfiles.intermediate
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\pri.resfiles.intermediate
 C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.csprojResolveAssemblyReference.cache
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\SharpDX_Windows_8_Abstraction.csprojResolveAssemblyReference.cache
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\priconfig.xml.intermediate
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\layout.resfiles.intermediate
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\resources.resfiles.intermediate
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\pri.resfiles.intermediate

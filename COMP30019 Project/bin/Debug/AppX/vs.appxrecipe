@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-21T09:09:42.978</Modified>
+      <Modified>2012-10-21T10:34:05.690</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-21T09:06:38.375</Modified>
+      <Modified>2012-10-21T10:34:05.591</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-21T09:06:38.328</Modified>
+      <Modified>2012-10-21T10:34:05.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -87,6 +87,14 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-10-21T06:03:53.392</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\GameOver.jpg">
+      <PackagePath>images\GameOver.jpg</PackagePath>
+      <Modified>2012-10-21T10:32:24.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\MainMenu.jpg">
+      <PackagePath>images\MainMenu.jpg</PackagePath>
+      <Modified>2012-10-21T10:32:18.501</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\splashView.jpg">
       <PackagePath>Assets\splashView.jpg</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -100,21 +108,29 @@
       <PackagePath>images\mainpageBG.jpg</PackagePath>
       <Modified>2012-10-19T06:59:02.542</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\Target.gif">
+      <PackagePath>images\Target.gif</PackagePath>
+      <Modified>2012-10-21T10:11:49.698</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Rhino_modified.txt">
       <PackagePath>Rhino_modified.txt</PackagePath>
       <Modified>2012-10-19T23:07:22.722</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\enemy projectile.png">
-      <PackagePath>images\enemy projectile.png</PackagePath>
-      <Modified>2012-09-09T16:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
+      <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
+      <Modified>2012-10-21T10:34:04.052</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\enemy.png">
-      <PackagePath>images\enemy.png</PackagePath>
-      <Modified>2012-09-09T16:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
+      <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
+      <Modified>2012-10-21T10:34:04.084</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\player projectile.png">
-      <PackagePath>images\player projectile.png</PackagePath>
-      <Modified>2012-09-09T16:07:24.000</Modified>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
+      <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
+      <Modified>2012-10-21T10:34:04.035</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
+      <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
+      <Modified>2012-10-21T10:34:04.068</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy projectile.png">
       <PackagePath>Assets\enemy projectile.png</PackagePath>
@@ -131,26 +147,6 @@
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\player.png">
       <PackagePath>Assets\player.png</PackagePath>
       <Modified>2012-09-10T07:37:40.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\player.png">
-      <PackagePath>images\player.png</PackagePath>
-      <Modified>2012-09-09T16:07:24.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
-      <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T09:09:42.681</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
-      <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T09:09:42.728</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
-      <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T09:09:42.666</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
-      <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T09:09:42.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
@@ -174,15 +170,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\EndPage.xaml">
       <PackagePath>EndPage.xaml</PackagePath>
-      <Modified>2012-10-21T06:34:17.854</Modified>
+      <Modified>2012-10-21T10:34:03.799</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2012-10-21T06:28:53.995</Modified>
+      <Modified>2012-10-21T10:34:03.852</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-21T09:09:42.947</Modified>
+      <Modified>2012-10-21T10:29:18.639</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

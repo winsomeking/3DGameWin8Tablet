@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="images/background.jpg"/>
+            <ImageBrush ImageSource="images/GameOver.jpg"/>
         </Grid.Background>
         <Button Content="Play Again" HorizontalAlignment="Left" Margin="481,333,0,0" VerticalAlignment="Top" Height="154" Width="414" FontSize="44.667" Click="Button_Click_1">
             <Button.Background>
