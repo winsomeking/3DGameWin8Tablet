@@ -33,6 +33,7 @@ namespace SharpDX_Windows_8_Abstraction
         // Time keeping.
         public Stopwatch clock;
         public float time;
+        public float game_time_limit;
         private float previousTime;
 
         // Transformation matrices.
@@ -67,6 +68,13 @@ namespace SharpDX_Windows_8_Abstraction
         private Terrain game_terrain;
 
         private CameraController cameraController = new CameraController();
+        
+        private double cameraNextPosX;
+        private double cameraNextPosZ;
+        private float differenceXZ;
+        private float differenceY;
+        private float prevCameraAngleXZ = 0;
+        private float prevCameraAngleY = 0;
 
 
         const int MAP_SIZE = 256;
@@ -74,10 +82,9 @@ namespace SharpDX_Windows_8_Abstraction
         // Set up the light, a grey ambient light and a white positional light
         // The positional light is currently located above and behind the cube
         // (because it's + in Y and + in Z)
-        Vector4 lightAmbCol = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
+        Vector4 lightAmbCol = new Vector4(0.7f, 0.7f, 0.7f, 1.0f);
         Vector4 lightPntCol = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-      //  Vector4 lightPntPos =  new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f)// new Vector4(10.0f, 10.0f, -3.0f, 1.0f);
-        Vector4 lightPntPos = new Vector4();
+        Vector4 lightPntPos = new Vector4((float)MAP_SIZE / 2.0f, 300.0f, (float)MAP_SIZE / 2.0f, 1.0f);
 
         //cbuffer structure which is used by shaders
         struct S_SHADER_GLOBALS
@@ -104,6 +111,7 @@ namespace SharpDX_Windows_8_Abstraction
         public Game(MainPage mainPage, Assets assets, DeviceManager deviceManager)
         {
             // Set references to 
+            game_time_limit = 60.0f; // 1 minute time limit
             this.mainPage = mainPage;
             this.assets = assets;
             this.deviceManager = deviceManager;
@@ -286,15 +294,63 @@ namespace SharpDX_Windows_8_Abstraction
         // Main loop that executes every frame.
         public void Update()
         {
-          //FIX ME: uncomment this line of code to keep tracking the player.  
-          // cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
-           cameraController.updateViewMatrix();
-           view = cameraController.getView();
+          //FIX ME: uncomment this line of code to keep tracking the player. 
+
+            cameraNextPosX = player.pos.X + 5 * Math.Cos(player.getAngleXZ());
+            cameraNextPosZ = player.pos.Z + 5 * Math.Sin(player.getAngleXZ());
+
+            differenceXZ = player.getAngleXZ() - prevCameraAngleXZ;
+            differenceY = game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)) - game_terrain.getWorldHeight((int)player.pos.X,(int)player.pos.Z);
+
+            if(cameraNextPosX < 0)
+            {
+                cameraNextPosX += MAP_SIZE;
+            }
+            else if (cameraNextPosX > MAP_SIZE)
+            {
+                cameraNextPosX -= MAP_SIZE;
+            }
+
+            if (cameraNextPosZ < 0)
+            {
+                cameraNextPosZ += MAP_SIZE;
+            }
+            else if (cameraNextPosZ > MAP_SIZE)
+            {
+                cameraNextPosZ -= MAP_SIZE;
+            }
+
+            //if (player.pos.Y < game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)))
+            //{
+                cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f - 10.0f * (differenceY/100.0f), (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            //}
+            //else
+            //{
+            //    cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f, (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            //}
+
+            prevCameraAngleXZ += differenceXZ / 10.0f;
+            prevCameraAngleY += differenceY / 10.0f;
+
+            cameraController.updateViewMatrix();
+            view = cameraController.getView();
                 
             // Calculate timeDelta.
             time = clock.ElapsedMilliseconds / 1000f;
             var timeDelta = time - previousTime;
             previousTime = time;
+
+            // Game time limiter
+            game_time_limit -= timeDelta;
+            if (game_time_limit <= 0.0f)
+            {
+                // Time is up, game is finished
+                Remove(player);
+            }
+            else if (this.Count(GameObjectType.Enemy) == 0)
+            {
+                // Reset the game timer
+            }
 
             flushAddedAndRemovedGameObjects();
 
@@ -316,10 +372,9 @@ namespace SharpDX_Windows_8_Abstraction
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
 
-            Vector4 tempPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
-
             S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
             context.UpdateSubresource(ref shaderGlobals, constantBuffer);
+
             //var worldInvTrp = world;
             //worldInvTrp.Invert();
             //worldInvTrp.Transpose();
@@ -331,11 +386,16 @@ namespace SharpDX_Windows_8_Abstraction
             // Update game objects.
             foreach (var obj in gameObjects)
             {
-                obj.Render(render);
+                if (obj.type == GameObjectType.Player)
+                {
+                    obj.Render(render, player.getAngleYZ(), -player.getAngleXZ(), player.getAngleYX());
+//                    obj.Render(render, 0, -player.getAngleXZ(), player.getAngleYX());
+                }
+                else
+                {
+                    obj.Render(render, 0, 0, 0);
+                }
             }
-
-            // Render the terrain
-            // FILL IN
         }
 
 

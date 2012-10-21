@@ -198,6 +198,7 @@ namespace SharpDX_Windows_8_Abstraction
                 }
             }
 
+            /*
             // Making a plane of square on y=0
             vertices[grid_len * grid_len * 6] = new Vertices(0, 0, 0, red);
             vertices[grid_len * grid_len * 6 + 1] = new Vertices(0, 0, grid_len, red);
@@ -205,7 +206,7 @@ namespace SharpDX_Windows_8_Abstraction
             vertices[grid_len * grid_len * 6 + 3] = new Vertices(0, 0, grid_len, red);
             vertices[grid_len * grid_len * 6 + 4] = new Vertices(grid_len, 0, grid_len, red);
             vertices[grid_len * grid_len * 6 + 5] = new Vertices(grid_len, 0, 0, red);
-
+            */
 
             //FIX ME: Add normal calculation here. It should be normalised.
             
@@ -214,33 +215,54 @@ namespace SharpDX_Windows_8_Abstraction
 
 
             
-            for (int i = 0; i < grid_len * grid_len * 6 + 6; i++)
+            for (int i = 0; i < (grid_len * grid_len * 6 /*+ 6*/)/3; i++)
             {
                 Vector3 faceNormal = new Vector3();
 
-                if (i % 3 == 0)
-                {
-                    Vector3 p0 = new Vector3(vertices[i].x,vertices[i].y,vertices[i].z);
-                    Vector3 p1 = new Vector3(vertices[i+1].x, vertices[i+1].y, vertices[i+1].z);
-                    Vector3 p2 = new Vector3(vertices[i+2].x, vertices[i+2].y, vertices[i+2].z);
-                    
-                    faceNormal  = computeFaceNormal(p0,p1,p2);
-                }
-                
-                floatArray[i * 12]     = (float)vertices[i].x;
-                floatArray[i * 12 + 1] = (float)vertices[i].y;
-                floatArray[i * 12 + 2] = (float)vertices[i].z;
-                floatArray[i * 12 + 3] = (float)vertices[i].m;
-                floatArray[i * 12 + 4] = vertices[i].color[0];
-                floatArray[i * 12 + 5] = vertices[i].color[1];
-                floatArray[i * 12 + 6] = vertices[i].color[2];
-                floatArray[i * 12 + 7] = vertices[i].color[3];
+                Vector3 p0 = new Vector3(vertices[i].x,vertices[i].y,vertices[i].z);
+                Vector3 p1 = new Vector3(vertices[i+1].x, vertices[i+1].y, vertices[i+1].z);
+                Vector3 p2 = new Vector3(vertices[i+2].x, vertices[i+2].y, vertices[i+2].z);
 
-                floatArray[i * 12 + 8]  =  faceNormal.X; //vertices[i].nx;
-                floatArray[i * 12 + 9]  =  faceNormal.Y; //vertices[i].ny;
-                floatArray[i * 12 + 10] =  faceNormal.Z; //vertices[i].nz;
-                floatArray[i * 12 + 11] =  1;             //vertices[i].nm;
+                faceNormal = computeFaceNormal(p0, p1, p2);
 
+                floatArray[i * 36] = (float)vertices[i * 3].x;
+                floatArray[i * 36 + 1] = (float)vertices[i * 3].y;
+                floatArray[i * 36 + 2] = (float)vertices[i * 3].z;
+                floatArray[i * 36 + 3] = (float)vertices[i * 3].m;
+                floatArray[i * 36 + 4] = vertices[i * 3].color[0];
+                floatArray[i * 36 + 5] = vertices[i * 3].color[1];
+                floatArray[i * 36 + 6] = vertices[i * 3].color[2];
+                floatArray[i * 36 + 7] = vertices[i * 3].color[3];
+                floatArray[i * 36 + 8] = faceNormal.X;  //vertices[i].nx;
+                floatArray[i * 36 + 9] = faceNormal.Y;  //vertices[i].ny;
+                floatArray[i * 36 + 10] = faceNormal.Z; //vertices[i].nz;
+                floatArray[i * 36 + 11] = 1.0f;          //vertices[i].nm;
+
+                floatArray[i * 36 + 12] = (float)vertices[i * 3 + 1].x;
+                floatArray[i * 36 + 13] = (float)vertices[i * 3 + 1].y;
+                floatArray[i * 36 + 14] = (float)vertices[i * 3 + 1].z;
+                floatArray[i * 36 + 15] = (float)vertices[i * 3 + 1].m;
+                floatArray[i * 36 + 16] = vertices[i * 3 + 1].color[0];
+                floatArray[i * 36 + 17] = vertices[i * 3 + 1].color[1];
+                floatArray[i * 36 + 18] = vertices[i * 3 + 1].color[2];
+                floatArray[i * 36 + 19] = vertices[i * 3 + 1].color[3];
+                floatArray[i * 36 + 20] = faceNormal.X; //vertices[i].nx;
+                floatArray[i * 36 + 21] = faceNormal.Y; //vertices[i].ny;
+                floatArray[i * 36 + 22] = faceNormal.Z; //vertices[i].nz;
+                floatArray[i * 36 + 23] = 1.0f;          //vertices[i].nm;
+
+                floatArray[i * 36 + 24] = (float)vertices[i * 3 + 2].x;
+                floatArray[i * 36 + 25] = (float)vertices[i * 3 + 2].y;
+                floatArray[i * 36 + 26] = (float)vertices[i * 3 + 2].z;
+                floatArray[i * 36 + 27] = (float)vertices[i * 3 + 2].m;
+                floatArray[i * 36 + 28] = vertices[i * 3 + 2].color[0];
+                floatArray[i * 36 + 29] = vertices[i * 3 + 2].color[1];
+                floatArray[i * 36 + 30] = vertices[i * 3 + 2].color[2];
+                floatArray[i * 36 + 31] = vertices[i * 3 + 2].color[3];
+                floatArray[i * 36 + 32] = faceNormal.X; //vertices[i].nx;
+                floatArray[i * 36 + 33] = faceNormal.Y; //vertices[i].ny;
+                floatArray[i * 36 + 34] = faceNormal.Z; //vertices[i].nz;
+                floatArray[i * 36 + 35] = 1.0f;          //vertices[i].nm;
 
             }
             
@@ -260,7 +282,7 @@ namespace SharpDX_Windows_8_Abstraction
             Vector3 tempV = new Vector3(v.X,v.Y,v.Z);
 
             Vector3 normalisedVector = Vector3.Normalize(Vector3.Cross(tempU, tempV));
-            //Vector4 normalisedVector     = new Vector4(normalisedVectorTemp.X,normalisedVectorTemp.Y,normalisedVectorTemp.Z,1);
+            //Vector4 normalisedVector = new Vector4(normalisedVectorTemp.X,normalisedVectorTemp.Y,normalisedVectorTemp.Z,1);
             return normalisedVector;
         }
 
@@ -268,27 +290,27 @@ namespace SharpDX_Windows_8_Abstraction
         {
             // This is using forced color on different section of height
             
-            if (height < 10.0f)
+            if (height < WorldBottom + (WorldTop - WorldBottom) / 7.0f)
             {
                 return blue;
             }
-            else if (height < 30.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 2 / 7.0f)
             {
                 return lightBlue;
             }
-            else if (height < 40.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 3 / 7.0f)
             {
                 return yellow;
             }
-            else if (height < 50.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 4 / 7.0f)
             {
                 return darkYellow;
             }
-            else if (height < 60.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 5 / 7.0f)
             {
                 return green;
             }
-            else if (height < 90.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 6 / 7.0f)
             {
                 return brown;
             }
@@ -331,10 +353,6 @@ namespace SharpDX_Windows_8_Abstraction
         public float y;
         public Vector4 color;
         public int m = 1;
-        public float nx = 0.0f;
-        public float ny = 0.0f;
-        public float nz = 0.0f;
-        public float nm = 1.0f;
 
         // constructor method. Initialise coordinates.
         public Vertices(int x, float y, int z, Vector4 color)

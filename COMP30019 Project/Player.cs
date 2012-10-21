@@ -21,60 +21,70 @@ namespace SharpDX_Windows_8_Abstraction
     // Player class.
     class Player : VisibleGameObject
     {
-        private StreamReader text_model;
+        Player_Vertices player_vertices = new Player_Vertices();
+        int num_of_lines;
+        private float[] floatArrayVertices;
+        private float[] floatArrayNormal;
+        private int[] intArrayFace;
+        private float[] floatArray;
 
         private Vector3 vel;
         private Vector3 next_pos;
         private Vector3 next_pos_vector;
         private Vector3 normalized_vel;
         private float resultant_collision;
+        private int score = 0;
 
         private float speedXZ = 8.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -0.08f;
+        private float gravity = -1.0f;
 
+        /*
         private bool leftDown;
         private bool rightDown;
+        */
 
-        private float projectileSpeed = 20;
-        private float[] floatArray = new float[12 * 64223];
 
         private float angleXZ = 0;
-
-        public Player(Game game)
-            : base(game)
-        {
-
+        public Player(Game game) : base(game) {
+            
+            num_of_lines = player_vertices.separated.Length / 4;
+            next_pos = Vector3.Zero;
+            next_pos_vector = Vector3.Zero;
+            normalized_vel = Vector3.Zero;
             type = GameObjectType.Player;
             model = game.assets.GetModel("player", CreatePlayerModel);
             pos = new SharpDX.Vector3(game.getTerrain().getGridlen() / 2, game.getTerrain().getWorldHeight(game.getTerrain().getGridlen() / 2, game.getTerrain().getGridlen() / 2) + 32, game.getTerrain().getGridlen() / 2);
             vel = Vector3.Zero;
-            next_pos = Vector3.Zero;
-            next_pos_vector = Vector3.Zero;
-            normalized_vel = Vector3.Zero;
+            
         }
 
         public Model CreatePlayerModel()
         {
             readVerticesNormal();
             return game.assets.CreateCustomModel(floatArray);
+            //return game.assets.CreateTexturedBox("player.png", new Vector3(1.0f, 1.0f, 1.0f));
         }
 
         // Method to create projectile texture to give to newly created projectiles.
+        /*
         private Model CreatePlayerProjectileModel()
         {
             return game.assets.CreateTexturedBox("player projectile.png", new Vector3(0.3f, 0.2f, 0.25f));
         }
+        */
 
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
         {
-            fire();
+            //fire();
+            accelerate();
         }
 
         // Simulates a key press when a horizontal drag occurs
         public override void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
         {
+            /*
             if (args.Delta.Translation.X > 0)
             {
                 rightDown = true;
@@ -85,13 +95,16 @@ namespace SharpDX_Windows_8_Abstraction
                 rightDown = false;
                 leftDown = true;
             }
+            */
         }
 
         // Simulates a key release when the horizontal drag has completed
         public override void OnManipulationCompleted(GestureRecognizer sender, ManipulationCompletedEventArgs args)
         {
+            /*
             leftDown = false;
             rightDown = false;
+            */
         }
 
         // Keyboard controls.
@@ -99,22 +112,29 @@ namespace SharpDX_Windows_8_Abstraction
         {
             switch (arg.VirtualKey)
             {
-                case VirtualKey.Left: angleXZ += 0.1f; break;
-                case VirtualKey.Right: angleXZ -= 0.1f; break;
-                case VirtualKey.Space: break;
+                case VirtualKey.Left: 
+                    angleXZ += 0.1f;
+                    if (angleXZ > Math.PI) { angleXZ -= (float)Math.PI * 2.0f;}
+                    break;
+                case VirtualKey.Right: 
+                    angleXZ -= 0.1f;
+                    if (angleXZ < -Math.PI) { angleXZ += (float)Math.PI * 2.0f; }
+                    break;
+                case VirtualKey.Space: accelerate(); break;
             }
         }
         public override void KeyUp(KeyEventArgs arg)
         {
             switch (arg.VirtualKey)
             {
-                case VirtualKey.Left: leftDown = false; break;
-                case VirtualKey.Right: rightDown = false; break;
+                case VirtualKey.Left: /*leftDown = false;*/ break;
+                case VirtualKey.Right: /*rightDown = false;*/ break;
                 case VirtualKey.Space: break;
             }
         }
 
         // Shoot a projectile.
+        /*
         private void fire()
         {
             game.Add(new Projectile(game,
@@ -125,6 +145,7 @@ namespace SharpDX_Windows_8_Abstraction
              ));
 
         }
+        */
 
         // Frame update.
         public override void Update(float timeDelta)
@@ -154,109 +175,179 @@ namespace SharpDX_Windows_8_Abstraction
                 resultant_collision = SharpDX.Vector3.Dot(normalized_vel, next_pos_vector);
 
                 accelerationXZ = resultant_collision;
-
-                vel.Y = -1 / 4 * vel.Y;
-                pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z);
+                vel.Y = -(0.0f/10.0f) * vel.Y;
+                pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) + 1.0f;
 
             }
             else
             {
                 accelerationY = gravity;
-                accelerationXZ = accelerationXZ * 0.9f;
+                accelerationXZ = accelerationXZ * 0.8f;
             }
 
-            /* CHECK COLLISION WITH OBSTACLE */
+            pos.Y = game.getTerrain().getWorldHeight((int)pos.X,(int)pos.Z);
 
+            /* CHECK COLLISION WITH OBSTACLE */
+            foreach (var obj in game.gameObjects)
+            {
+                // Check of object is the target type and if it's within the projectile hit range.
+                if (obj.type == GameObjectType.Enemy && ((((VisibleGameObject)obj).pos - pos).LengthSquared() <= 2.0f))
+                {
+                    // Cast to object class and call Hit method.
+                    switch (obj.type)
+                    {
+                        case GameObjectType.Enemy:
+                            ((Enemy)obj).Hit();
+                            break;
+                    }
+
+                    score += (int)(1000.0 * vel.LengthSquared());
+                }
+            }
 
             // Apply velocity to position.
             pos += vel * timeDelta;
 
             // Keep within the boundaries.
-            //if (pos.X < game.boundaryLeft) { pos.X = game.boundaryLeft; }
-            //if (pos.X > game.boundaryRight) { pos.X = game.boundaryRight; }
+            if (pos.X < 0) { pos.X = game.getTerrain().getGridlen(); pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
+            if (pos.X > game.getTerrain().getGridlen()) { pos.X = 0; pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
+
+            if (pos.Z < 0) { pos.Z = game.getTerrain().getGridlen(); pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
+            if (pos.Z > game.getTerrain().getGridlen()) { pos.Z = 0; pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
         }
 
-        public async void readVerticesNormal()
+        public void accelerate()
         {
-            float[] floatArrayVertices = new float[3 * 64223];
-            float[] floatArrayNormal = new float[3 * 64223];
-            String[] line_read = new String[128446];
-            String[] temp = new String[5];
+            accelerationY = gravity - 1.0f; ;
+        }
 
-            int index = 0;
+        public void readVerticesNormal()
+        {
+
+            floatArrayVertices = new float[checkLength("v") * 4];
+            floatArrayNormal = new float[checkLength("n") * 4];
+            intArrayFace = new int[checkLength("f") * 6];
+            floatArray = new float[checkLength("f") * 3 * 12];
+
             int indexVertices = 0;
             int indexNormal = 0;
-        
-            //        //settings
-            //        var _Path = @"Rhino_modified.txt";
-            //        var _Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            int indexFace = 0;
 
-            //        // acquire file
-            //        var _File = await _Folder.GetFileAsync(_Path);
+            String[] faceTemp1 = new String[3];
+            String[] faceTemp2 = new String[3];
+            String[] faceTemp3 = new String[3];
 
-            //        // read content
-            //        IList<String> _ReadThis = await Windows.Storage.FileIO.ReadLinesAsync(_File);
-
-            //        while (true)
-            //        {
-
-
-            //            temp = _ReadThis[index].Split(' ');
-            //            // Check whether the first letter is "v"(Vertices) or "n"(Normal)
-            //            if (_ReadThis[index].StartsWith("v"))
-            //            {
-            //                floatArrayVertices[indexVertices * 3] = System.Convert.ToSingle(temp[1]);
-            //                floatArrayVertices[indexVertices * 3 + 1] = System.Convert.ToSingle(temp[2]);
-            //                floatArrayVertices[indexVertices * 3 + 2] = System.Convert.ToSingle(temp[3]);
-            //                indexVertices++;
-            //            }
-            //            else if (_ReadThis[index].StartsWith("n"))
-            //            {
-            //                floatArrayNormal[indexNormal * 3] = System.Convert.ToSingle(temp[1]);
-            //                floatArrayNormal[indexNormal * 3 + 1] = System.Convert.ToSingle(temp[2]);
-            //                floatArrayNormal[indexNormal * 3 + 2] = System.Convert.ToSingle(temp[3]);
-            //                indexNormal++;
-            //            }
-
-            //            index++;
-
-            //            // MAKE A BETTER NULL CATCHING METHOD
-            //            if (index == 128446)
-            //            {
-            //                break;
-            //            }
-
-            //        }
-
-            //        for (int i = 0; i < index/2; i++)
-            //        {
-            //            floatArray[i * 12] = floatArrayVertices[i * 3] / 10.0f;
-            //            floatArray[i * 12 + 1] = floatArrayVertices[i * 3 + 1] / 10.0f;
-            //            floatArray[i * 12 + 2] = floatArrayVertices[i * 3 + 2] / 10.0f;
-            //            floatArray[i * 12 + 3] = 1.0f;
-            //            floatArray[i * 12 + 4] = 0.4f;
-            //            floatArray[i * 12 + 5] = 0.4f;
-            //            floatArray[i * 12 + 6] = 0.4f;
-            //            floatArray[i * 12 + 7] = 1.0f;
-            //            floatArray[i * 12 + 8] = floatArrayNormal[i * 3];
-            //            floatArray[i * 12 + 9] = floatArrayNormal[i * 3 + 1];
-            //            floatArray[i * 12 + 10] = floatArrayNormal[i * 3 + 2];
-            //            floatArray[i * 12 + 11] = 1.0f;
-            //        }
-                }
-
-            //    // React to getting hit by an enemy bullet.
-                public void Hit()
+            for (int i = 0; i < num_of_lines; i++)
+            {
+                if (player_vertices.separated[i * 4].StartsWith("v"))
                 {
-                    game.Exit();
+                    floatArrayVertices[indexVertices * 3] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 1]);
+                    floatArrayVertices[indexVertices * 3 + 1] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 2]);
+                    floatArrayVertices[indexVertices * 3 + 2] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 3]);
+                    indexVertices++;
                 }
+                else if (player_vertices.separated[i * 4].StartsWith("n"))
+                {
+                    floatArrayNormal[indexNormal * 3] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 1]);
+                    floatArrayNormal[indexNormal * 3 + 1] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 2]);
+                    floatArrayNormal[indexNormal * 3 + 2] = System.Convert.ToSingle(player_vertices.separated[i * 4 + 3]);
+                    indexNormal++;
+                }
+                else if (player_vertices.separated[i * 4].StartsWith("f"))
+                {
+                    faceTemp1 = player_vertices.separated[i * 4 + 1].Split('/');
+                    faceTemp2 = player_vertices.separated[i * 4 + 2].Split('/');
+                    faceTemp3 = player_vertices.separated[i * 4 + 3].Split('/');
+                    intArrayFace[indexFace * 6] = System.Convert.ToInt32(faceTemp1[0]) - 1;
+                    intArrayFace[indexFace * 6 + 1] = System.Convert.ToInt32(faceTemp1[2]) - 1;
+                    intArrayFace[indexFace * 6 + 2] = System.Convert.ToInt32(faceTemp2[0]) - 1;
+                    intArrayFace[indexFace * 6 + 3] = System.Convert.ToInt32(faceTemp2[2]) - 1;
+                    intArrayFace[indexFace * 6 + 4] = System.Convert.ToInt32(faceTemp3[0]) - 1;
+                    intArrayFace[indexFace * 6 + 5] = System.Convert.ToInt32(faceTemp3[2]) - 1;
+                    indexFace++;
+                }
+            }
 
-            //    // React to getting hit by an enemy bullet.
-            //    public float getAngleXZ()
-            //    {
-            //        return angleXZ;
-            //    }
-            //}
+            for (int i = 0; i < checkLength("f"); i++)
+            {
+                floatArray[i * 36 + 12] = floatArrayVertices[intArrayFace[i * 6] * 3];
+                floatArray[i * 36 + 13] = floatArrayVertices[intArrayFace[i * 6] * 3 + 1];
+                floatArray[i * 36 + 14] = floatArrayVertices[intArrayFace[i * 6] * 3 + 2];
+                floatArray[i * 36 + 15] = 1.0f;
+                floatArray[i * 36 + 16] = 0.4f;
+                floatArray[i * 36 + 17] = 0.4f;
+                floatArray[i * 36 + 18] = 0.4f;
+                floatArray[i * 36 + 19] = 1.0f;
+                floatArray[i * 36 + 20] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3];
+                floatArray[i * 36 + 21] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 1];
+                floatArray[i * 36 + 22] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 2];
+                floatArray[i * 36 + 23] = 1.0f;
+
+                floatArray[i * 36 + 0] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3];
+                floatArray[i * 36 + 1] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3 + 1];
+                floatArray[i * 36 + 2] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3 + 2];
+                floatArray[i * 36 + 3] = 1.0f;
+                floatArray[i * 36 + 4] = 0.4f;
+                floatArray[i * 36 + 5] = 0.4f;
+                floatArray[i * 36 + 6] = 0.4f;
+                floatArray[i * 36 + 7] = 1.0f;
+                floatArray[i * 36 + 8] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3];
+                floatArray[i * 36 + 9] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 1];
+                floatArray[i * 36 + 10] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 2];
+                floatArray[i * 36 + 11] = 1.0f;
+
+                floatArray[i * 36 + 24] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3];
+                floatArray[i * 36 + 25] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3 + 1];
+                floatArray[i * 36 + 26] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3 + 2];
+                floatArray[i * 36 + 27] = 1.0f;
+                floatArray[i * 36 + 28] = 0.4f;
+                floatArray[i * 36 + 29] = 0.4f;
+                floatArray[i * 36 + 30] = 0.4f;
+                floatArray[i * 36 + 31] = 1.0f;
+                floatArray[i * 36 + 32] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3];
+                floatArray[i * 36 + 33] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 1];
+                floatArray[i * 36 + 34] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 2];
+                floatArray[i * 36 + 35] = 1.0f;
+            }
         }
-    
+
+        public int checkLength(String targetString)
+        {
+            int count = 0;
+            for (int i = 0; i < num_of_lines; i++)
+            {
+                if (player_vertices.separated[i * 4].StartsWith(targetString))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // React to getting hit by an enemy bullet.
+        public void Hit()
+        {
+            game.Exit();
+        }
+
+        // Return value for angle in XZ plane
+        public float getAngleXZ()
+        {
+            return angleXZ;
+        }
+
+        // Return value for angle in YX plane
+        public float getAngleYX()
+        {
+            if (vel.Y == 0 && vel.X == 0) { return 0; }
+            else { return (float)Math.Atan(vel.Y / vel.X); }
+        }
+
+        // Return value for angle in YZ plane
+        public float getAngleYZ()
+        {
+            if (vel.Y == 0 && vel.Z == 0) { return 0; }
+            else { return (float)Math.Atan(vel.Y / vel.Z); }
+        }
+    }
 }
