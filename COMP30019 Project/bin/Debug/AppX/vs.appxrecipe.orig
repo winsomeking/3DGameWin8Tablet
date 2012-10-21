@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DVD-LESHER-PC</Machine>
-    <WindowsUser>DVDLesher</WindowsUser>
+    <Machine>CHRIS-TABLET</Machine>
+    <WindowsUser>COMP30019</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-<<<<<<< HEAD
     <RegisteredManifestChecksum>9C62F37A81A81F8BF372FA00F90411A89A2785C79579C7F650FF6C8BF98DEF28</RegisteredManifestChecksum>
-=======
-    <RegisteredManifestChecksum>F45960F0DC13D94F90D2B50DA84A50783B6AF6CCC16E724DE28F420B1ADEB04E</RegisteredManifestChecksum>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
     <RegisteredPackageMoniker>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_1.0.0.0_neutral__4z88w3h258m6t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_4z88w3h258m6t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c</RegisteredPackageID>
@@ -17,78 +13,77 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:19.589</Modified>
 =======
-      <Modified>2012-10-21T17:38:47.958</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:51.073</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:19.480</Modified>
 =======
-      <Modified>2012-10-21T17:34:35.014</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:51.009</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:19.460</Modified>
 =======
-      <Modified>2012-10-21T17:34:35.000</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:50.996</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
-      <Modified>2012-08-17T13:14:52.000</Modified>
+      <Modified>2012-08-17T03:14:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.D3DCompiler.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.D3DCompiler.dll">
       <PackagePath>SharpDX.D3DCompiler.dll</PackagePath>
-      <Modified>2012-06-09T15:04:22.000</Modified>
+      <Modified>2012-06-09T05:04:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct2D1.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct2D1.dll">
       <PackagePath>SharpDX.Direct2D1.dll</PackagePath>
-      <Modified>2012-06-09T15:04:24.000</Modified>
+      <Modified>2012-06-09T05:04:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct3D11.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct3D11.dll">
       <PackagePath>SharpDX.Direct3D11.dll</PackagePath>
-      <Modified>2012-06-09T15:04:26.000</Modified>
+      <Modified>2012-06-09T05:04:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.dll">
       <PackagePath>SharpDX.dll</PackagePath>
-      <Modified>2012-06-09T15:04:20.000</Modified>
+      <Modified>2012-06-09T05:04:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.DXGI.dll">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.DXGI.dll">
       <PackagePath>SharpDX.DXGI.dll</PackagePath>
-      <Modified>2012-06-09T15:04:22.000</Modified>
+      <Modified>2012-06-09T05:04:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.xml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.xml">
       <PackagePath>SharpDX.xml</PackagePath>
-      <Modified>2012-06-09T15:04:18.000</Modified>
+      <Modified>2012-06-09T05:04:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.D3DCompiler.xml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.D3DCompiler.xml">
       <PackagePath>SharpDX.D3DCompiler.xml</PackagePath>
-      <Modified>2012-06-09T15:04:20.000</Modified>
+      <Modified>2012-06-09T05:04:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct2D1.xml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct2D1.xml">
       <PackagePath>SharpDX.Direct2D1.xml</PackagePath>
-      <Modified>2012-06-09T15:04:24.000</Modified>
+      <Modified>2012-06-09T05:04:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct3D11.xml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.Direct3D11.xml">
       <PackagePath>SharpDX.Direct3D11.xml</PackagePath>
-      <Modified>2012-06-09T15:04:26.000</Modified>
+      <Modified>2012-06-09T05:04:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.DXGI.xml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Sharp\SharpDX.DXGI.xml">
       <PackagePath>SharpDX.DXGI.xml</PackagePath>
-      <Modified>2012-06-09T15:04:22.000</Modified>
+      <Modified>2012-06-09T05:04:22.000</Modified>
     </AppxPackagedFile>
-<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\bigLogo.jpg">
       <PackagePath>Assets\bigLogo.jpg</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -108,144 +103,114 @@
       <PackagePath>Assets\splashView.jpg</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-10-21T05:55:58.562</Modified>
-=======
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Rhino_modified.txt">
-      <PackagePath>Rhino_modified.txt</PackagePath>
-      <Modified>2012-10-19T17:54:51.135</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\background.jpg">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\background.jpg">
       <PackagePath>images\background.jpg</PackagePath>
-      <Modified>2012-10-20T21:27:14.266</Modified>
+      <Modified>2012-10-19T05:04:00.941</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\mainpageBG.jpg">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\mainpageBG.jpg">
       <PackagePath>images\mainpageBG.jpg</PackagePath>
-      <Modified>2012-10-20T21:27:14.268</Modified>
+      <Modified>2012-10-19T06:59:02.542</Modified>
     </AppxPackagedFile>
-<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Rhino_modified.txt">
       <PackagePath>Rhino_modified.txt</PackagePath>
       <Modified>2012-10-19T23:07:22.722</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\enemy projectile.png">
-=======
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\enemy projectile.png">
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
       <PackagePath>images\enemy projectile.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+      <Modified>2012-09-09T16:07:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\enemy.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\enemy.png">
       <PackagePath>images\enemy.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+      <Modified>2012-09-09T16:07:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\player projectile.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\player projectile.png">
       <PackagePath>images\player projectile.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+      <Modified>2012-09-09T16:07:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy projectile.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy projectile.png">
       <PackagePath>Assets\enemy projectile.png</PackagePath>
-      <Modified>2012-09-10T17:37:40.000</Modified>
+      <Modified>2012-09-10T07:37:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy.png">
       <PackagePath>Assets\enemy.png</PackagePath>
-      <Modified>2012-09-10T17:37:40.000</Modified>
+      <Modified>2012-09-10T07:37:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\player projectile.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\player projectile.png">
       <PackagePath>Assets\player projectile.png</PackagePath>
-      <Modified>2012-09-10T17:37:40.000</Modified>
+      <Modified>2012-09-10T07:37:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\player.png">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\player.png">
       <PackagePath>Assets\player.png</PackagePath>
-      <Modified>2012-09-10T17:37:40.000</Modified>
+      <Modified>2012-09-10T07:37:40.000</Modified>
     </AppxPackagedFile>
-<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\images\player.png">
-=======
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\Assets\SplashScreen.png">
-      <PackagePath>Assets\SplashScreen.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-04-09T12:33:26.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\images\player.png">
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
       <PackagePath>images\player.png</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+      <Modified>2012-09-09T16:07:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:18.022</Modified>
 =======
-      <Modified>2012-10-21T17:38:47.813</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:49.975</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:18.058</Modified>
 =======
-      <Modified>2012-10-21T17:38:47.840</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:50.000</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:18.005</Modified>
 =======
-      <Modified>2012-10-21T17:38:47.800</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:49.962</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
 <<<<<<< HEAD
       <Modified>2012-10-21T06:34:18.041</Modified>
 =======
-      <Modified>2012-10-21T17:38:47.828</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-10-21T17:51:49.988</Modified>
+>>>>>>> 49c17a226cc2937cb3226e2c8aeae7f412d96116
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
-      <Modified>2012-10-20T23:21:12.087</Modified>
+      <Modified>2012-10-19T04:38:42.125</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\Textured.fx">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Textured.fx">
       <PackagePath>shaders\Textured.fx</PackagePath>
-      <Modified>2012-09-10T02:07:24.000</Modified>
+      <Modified>2012-09-09T16:07:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Common\StandardStyles.xaml">
-      <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2012-06-04T06:20:10.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Console.xaml">
-      <PackagePath>Console.xaml</PackagePath>
-      <Modified>2012-09-10T23:28:36.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\EndPage.xaml">
-      <PackagePath>EndPage.xaml</PackagePath>
-<<<<<<< HEAD
-      <Modified>2012-10-21T06:34:17.854</Modified>
-=======
-      <Modified>2012-10-20T21:27:13.227</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\MainPage.xaml">
-      <PackagePath>MainPage.xaml</PackagePath>
-<<<<<<< HEAD
-      <Modified>2012-10-21T06:28:53.995</Modified>
-=======
-      <Modified>2012-10-20T21:27:13.228</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2012-09-10T08:45:16.000</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
+      <Modified>2012-09-09T22:45:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2012-06-03T20:20:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\Console.xaml">
+      <PackagePath>Console.xaml</PackagePath>
+      <Modified>2012-09-10T13:28:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\EndPage.xaml">
+      <PackagePath>EndPage.xaml</PackagePath>
+      <Modified>2012-10-21T06:34:17.854</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+      <Modified>2012-10-21T06:28:53.995</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-<<<<<<< HEAD
       <Modified>2012-10-21T06:25:48.993</Modified>
-=======
-      <Modified>2012-10-20T21:34:15.609</Modified>
->>>>>>> f621a99617d0b06fc0a91b5b523ad94e8e31b7c1
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

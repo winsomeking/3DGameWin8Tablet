@@ -1,0 +1,25 @@
+﻿<SwapChainBackgroundPanel
+    x:Class="SharpDX_Windows_8_Abstraction.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SharpDX_Windows_8_Abstraction"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,0,-28,-109">
+        <Grid.Background>
+            <ImageBrush ImageSource="images/mainpageBG.jpg"/>
+        </Grid.Background>
+        <Button x:ConnectionId='1' Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312"                        FontSize="44.667" Opacity="0.7">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFB63E3E" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</SwapChainBackgroundPanel>
+
