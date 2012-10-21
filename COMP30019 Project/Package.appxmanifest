@@ -16,8 +16,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SharpDX_Windows_8_AbstractionApp">
-      <VisualElements DisplayName="Over the moon" Logo="Assets\Logo.jpg" SmallLogo="Assets\smallLogo.jpg" Description="Over the moon" ForegroundText="light" BackgroundColor="#222222">
-        <DefaultTile ShowName="allLogos" WideLogo="Assets\bigLogo.jpg" />
+      <VisualElements DisplayName="Over the moon" Logo="Assets\Smileyface.jpg" SmallLogo="Assets\smallLogo.jpg" Description="Over the moon" ForegroundText="light" BackgroundColor="#222222">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\Themountaintimelapse.jpg" />
         <SplashScreen Image="Assets\splashView.jpg" BackgroundColor="#73BF73" />
         <InitialRotationPreference>
           <Rotation Preference="landscape" />

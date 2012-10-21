@@ -145,8 +145,10 @@
     <Content Include="Assets\bigLogo.jpg" />
     <Content Include="Assets\logo.jpg" />
     <Content Include="Assets\smallLogo.jpg" />
+    <Content Include="Assets\Themountaintimelapse.jpg" />
     <Content Include="images\GameOver.jpg" />
     <Content Include="images\MainMenu.jpg" />
+    <Content Include="Assets\Smileyface.jpg" />
     <Content Include="images\Target.gif" />
     <Content Include="Assets\splashView.jpg" />
     <Content Include="Rhino_modified.txt" />
