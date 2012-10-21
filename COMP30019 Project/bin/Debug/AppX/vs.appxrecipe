@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-21T17:51:51.073</Modified>
+      <Modified>2012-10-21T18:20:54.430</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-21T17:51:51.009</Modified>
+      <Modified>2012-10-21T18:20:54.366</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-21T17:51:50.996</Modified>
+      <Modified>2012-10-21T18:20:54.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -123,19 +123,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T17:51:49.975</Modified>
+      <Modified>2012-10-21T18:20:53.392</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T17:51:50.000</Modified>
+      <Modified>2012-10-21T18:20:53.418</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T17:51:49.962</Modified>
+      <Modified>2012-10-21T18:20:53.380</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T17:51:49.988</Modified>
+      <Modified>2012-10-21T18:20:53.406</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
@@ -167,7 +167,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DVDLesher\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-20T21:34:15.609</Modified>
+      <Modified>2012-10-21T17:58:28.596</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
