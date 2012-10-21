@@ -24,7 +24,7 @@ namespace SharpDX_Windows_8_Abstraction
         {
             // Get the accelerometer object
             accelerometer = Accelerometer.GetDefault();
-            //accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+            accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
 
             window = Window.Current.CoreWindow;
 
@@ -67,7 +67,7 @@ namespace SharpDX_Windows_8_Abstraction
 
         public float getAccelReading(String type)
         {
-            if (type == "x")
+            if (type.Equals("x"))
             {
                 return accel_x;
             }

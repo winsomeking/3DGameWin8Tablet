@@ -144,6 +144,16 @@ namespace SharpDX_Windows_8_Abstraction
             input.window.KeyDown += KeyDown;
             input.window.KeyUp += KeyUp;
             input.gestureRecognizer.Tapped += Tapped;
+            input.gestureRecognizer.CrossSliding += crossSliding;
+            //input.gestureRecognizer.CrossSliding += (GestureRecognizer sender, CrossSlidingEventArgs args) =>
+            //        {
+            //            var rootFrame = new Frame();
+            //            rootFrame.Navigate(typeof(EndPage));
+
+            //            // Place the frame in the current Window and ensure that it is active
+            //            Window.Current.Content = rootFrame;
+            //            Window.Current.Activate();
+            //        };
             input.gestureRecognizer.ManipulationStarted += OnManipulationStarted;
             input.gestureRecognizer.ManipulationUpdated += OnManipulationUpdated;
             input.gestureRecognizer.ManipulationCompleted += OnManipulationCompleted;
@@ -197,6 +207,17 @@ namespace SharpDX_Windows_8_Abstraction
             }
         }
 
+        public void crossSliding(GestureRecognizer sender, CrossSlidingEventArgs args)
+        {
+            var rootFrame = new Frame();
+            rootFrame.Navigate(typeof(EndPage));
+
+            // Place the frame in the current Window and ensure that it is active
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
+
+        }
+
         public void OnManipulationUpdated(GestureRecognizer sender, ManipulationUpdatedEventArgs args)
         {
             // Pass Manipulation events to the game objects.
@@ -209,10 +230,19 @@ namespace SharpDX_Windows_8_Abstraction
         public void OnManipulationCompleted(GestureRecognizer sender, ManipulationCompletedEventArgs args)
         {
             // Pass Manipulation events to the game objects.
-            foreach (var obj in gameObjects)
-            {
-                obj.OnManipulationCompleted(sender, args);
-            }
+
+
+            var rootFrame = new Frame();
+            rootFrame.Navigate(typeof(EndPage));
+
+            // Place the frame in the current Window and ensure that it is active
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
+            
+            //foreach (var obj in gameObjects)
+            //{
+            //    obj.OnManipulationCompleted(sender, args);
+            //}
         }
 
         // Handler for key down event.
@@ -353,6 +383,9 @@ namespace SharpDX_Windows_8_Abstraction
             }
 
             flushAddedAndRemovedGameObjects();
+
+
+
 
             // Update game objects.
             foreach (var obj in gameObjects)

@@ -5,7 +5,7 @@
     <WindowsUser>COMP30019</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>9C62F37A81A81F8BF372FA00F90411A89A2785C79579C7F650FF6C8BF98DEF28</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>66B8C5FB7847157CDD1B675E82CC70FCDDC350A1175F0CCF9B73DFBB2B23025F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_1.0.0.0_neutral__4z88w3h258m6t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c_4z88w3h258m6t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>79f009a5-9ab8-4fe4-9fdb-be2c629b927c</RegisteredPackageID>
@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-21T07:22:01.420</Modified>
+      <Modified>2012-10-21T09:09:42.978</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-21T07:18:47.431</Modified>
+      <Modified>2012-10-21T09:06:38.375</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-21T07:18:47.400</Modified>
+      <Modified>2012-10-21T09:06:38.328</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -138,19 +138,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T07:22:01.186</Modified>
+      <Modified>2012-10-21T09:09:42.681</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T07:22:01.217</Modified>
+      <Modified>2012-10-21T09:09:42.728</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-21T07:22:01.170</Modified>
+      <Modified>2012-10-21T09:09:42.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-21T07:22:01.201</Modified>
+      <Modified>2012-10-21T09:09:42.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\Coloured.fx">
       <PackagePath>shaders\Coloured.fx</PackagePath>
@@ -182,7 +182,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-21T07:07:59.588</Modified>
+      <Modified>2012-10-21T09:09:42.947</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

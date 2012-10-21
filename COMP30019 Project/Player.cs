@@ -77,7 +77,7 @@ namespace SharpDX_Windows_8_Abstraction
 
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
         {
-            //fire();
+            
             accelerate();
         }
 
@@ -107,6 +107,7 @@ namespace SharpDX_Windows_8_Abstraction
             */
         }
 
+      
         // Keyboard controls.
         public override void KeyDown(KeyEventArgs arg)
         {
@@ -123,6 +124,8 @@ namespace SharpDX_Windows_8_Abstraction
                 case VirtualKey.Space: accelerate(); break;
             }
         }
+
+
         public override void KeyUp(KeyEventArgs arg)
         {
             switch (arg.VirtualKey)
@@ -156,8 +159,13 @@ namespace SharpDX_Windows_8_Abstraction
             vel.Y += accelerationY;
 
             // If accelerometer is tilted, then 
-            angleXZ = angleXZ + game.getAccelX() * 0.1f;
+           // float temp = game.getAccelX();
+            //if(game.getAccelX()==0.0f)
+            //    angleXZ += 0.000f;
+            //else
+            //    angleXZ += 10.0f;
 
+            angleXZ -= game.getAccelX() * 0.06f;
 
             /* CHECK COLLISION WITH TERRAIN */
             if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.0f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -10.0f)

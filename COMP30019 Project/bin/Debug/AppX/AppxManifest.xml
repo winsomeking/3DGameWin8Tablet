@@ -26,6 +26,9 @@
       <VisualElements DisplayName="Over the moon" Logo="Assets\Logo.jpg" SmallLogo="Assets\smallLogo.jpg" Description="Over the moon" ForegroundText="light" BackgroundColor="#222222">
         <DefaultTile ShowName="allLogos" WideLogo="Assets\bigLogo.jpg" />
         <SplashScreen Image="Assets\splashView.jpg" BackgroundColor="#73BF73" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>
