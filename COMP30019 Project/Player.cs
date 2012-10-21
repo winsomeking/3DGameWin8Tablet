@@ -38,14 +38,13 @@ namespace SharpDX_Windows_8_Abstraction
         private float speedXZ = 8.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -0.08f;
+        private float gravity = -1.0f;
 
         /*
         private bool leftDown;
         private bool rightDown;
         */
 
-        private float projectileSpeed = 20;
 
         private float angleXZ = 0;
         public Player(Game game) : base(game) {
@@ -69,14 +68,17 @@ namespace SharpDX_Windows_8_Abstraction
         }
 
         // Method to create projectile texture to give to newly created projectiles.
+        /*
         private Model CreatePlayerProjectileModel()
         {
             return game.assets.CreateTexturedBox("player projectile.png", new Vector3(0.3f, 0.2f, 0.25f));
         }
+        */
 
         public override void Tapped(GestureRecognizer sender, TappedEventArgs args)
         {
-            fire();
+            //fire();
+            accelerate();
         }
 
         // Simulates a key press when a horizontal drag occurs
@@ -110,9 +112,15 @@ namespace SharpDX_Windows_8_Abstraction
         {
             switch (arg.VirtualKey)
             {
-                case VirtualKey.Left: angleXZ += 0.1f; break;
-                case VirtualKey.Right: angleXZ -= 0.1f; break;
-                case VirtualKey.Space: break;
+                case VirtualKey.Left: 
+                    angleXZ += 0.1f;
+                    if (angleXZ > Math.PI) { angleXZ -= (float)Math.PI * 2.0f;}
+                    break;
+                case VirtualKey.Right: 
+                    angleXZ -= 0.1f;
+                    if (angleXZ < -Math.PI) { angleXZ += (float)Math.PI * 2.0f; }
+                    break;
+                case VirtualKey.Space: accelerate(); break;
             }
         }
         public override void KeyUp(KeyEventArgs arg)
@@ -126,6 +134,7 @@ namespace SharpDX_Windows_8_Abstraction
         }
 
         // Shoot a projectile.
+        /*
         private void fire()
         {
             game.Add(new Projectile(game,
@@ -136,6 +145,7 @@ namespace SharpDX_Windows_8_Abstraction
              ));
 
         }
+        */
 
         // Frame update.
         public override void Update(float timeDelta)
@@ -165,17 +175,19 @@ namespace SharpDX_Windows_8_Abstraction
                 resultant_collision = SharpDX.Vector3.Dot(normalized_vel, next_pos_vector);
 
                 accelerationXZ = resultant_collision;
-                vel.Y = -1/2 * vel.Y;
-                vel.Y = -1 / 4 * vel.Y;
+                vel.Y = -(0.0f/10.0f) * vel.Y;
                 pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) + 1.0f;
 
             }
             else
             {
                 accelerationY = gravity;
-                accelerationXZ = accelerationXZ * 0.9f;
+                accelerationXZ = accelerationXZ * 0.8f;
             }
 
+            pos.Y = game.getTerrain().getWorldHeight((int)pos.X,(int)pos.Z);
+
+            /* CHECK COLLISION WITH OBSTACLE */
             foreach (var obj in game.gameObjects)
             {
                 // Check of object is the target type and if it's within the projectile hit range.
@@ -184,9 +196,6 @@ namespace SharpDX_Windows_8_Abstraction
                     // Cast to object class and call Hit method.
                     switch (obj.type)
                     {
-                        case GameObjectType.Player:
-                            ((Player)obj).Hit();
-                            break;
                         case GameObjectType.Enemy:
                             ((Enemy)obj).Hit();
                             break;
@@ -195,7 +204,7 @@ namespace SharpDX_Windows_8_Abstraction
                     score += (int)(1000.0 * vel.LengthSquared());
                 }
             }
-            /* CHECK COLLISION WITH OBSTACLE */
+
             // Apply velocity to position.
             pos += vel * timeDelta;
 
@@ -205,6 +214,11 @@ namespace SharpDX_Windows_8_Abstraction
 
             if (pos.Z < 0) { pos.Z = game.getTerrain().getGridlen(); pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
             if (pos.Z > game.getTerrain().getGridlen()) { pos.Z = 0; pos.Y = game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z); }
+        }
+
+        public void accelerate()
+        {
+            accelerationY = gravity - 1.0f; ;
         }
 
         public void readVerticesNormal()

@@ -68,6 +68,13 @@ namespace SharpDX_Windows_8_Abstraction
         private Terrain game_terrain;
 
         private CameraController cameraController = new CameraController();
+        
+        private double cameraNextPosX;
+        private double cameraNextPosZ;
+        private float differenceXZ;
+        private float differenceY;
+        private float prevCameraAngleXZ = 0;
+        private float prevCameraAngleY = 0;
 
 
         const int MAP_SIZE = 256;
@@ -286,10 +293,46 @@ namespace SharpDX_Windows_8_Abstraction
         // Main loop that executes every frame.
         public void Update()
         {
-          //FIX ME: uncomment this line of code to keep tracking the player.  
-           cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
-           cameraController.updateViewMatrix();
-           view = cameraController.getView();
+          //FIX ME: uncomment this line of code to keep tracking the player. 
+
+            cameraNextPosX = player.pos.X + 5 * Math.Cos(player.getAngleXZ());
+            cameraNextPosZ = player.pos.Z + 5 * Math.Sin(player.getAngleXZ());
+
+            differenceXZ = player.getAngleXZ() - prevCameraAngleXZ;
+            differenceY = game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)) - game_terrain.getWorldHeight((int)player.pos.X,(int)player.pos.Z);
+
+            if(cameraNextPosX < 0)
+            {
+                cameraNextPosX += MAP_SIZE;
+            }
+            else if (cameraNextPosX > MAP_SIZE)
+            {
+                cameraNextPosX -= MAP_SIZE;
+            }
+
+            if (cameraNextPosZ < 0)
+            {
+                cameraNextPosZ += MAP_SIZE;
+            }
+            else if (cameraNextPosZ > MAP_SIZE)
+            {
+                cameraNextPosZ -= MAP_SIZE;
+            }
+
+            //if (player.pos.Y < game_terrain.getWorldHeight((int)(cameraNextPosX), (int)(cameraNextPosZ)))
+            //{
+                cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f - 10.0f * (differenceY/100.0f), (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            //}
+            //else
+            //{
+            //    cameraController.lookAt(new Vector3((float)(player.pos.X - 30.0f * (float)Math.Cos(prevCameraAngleXZ)), player.pos.Y + 20.0f, (float)(player.pos.Z - 30.0f * (float)Math.Sin(prevCameraAngleXZ))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+            //}
+
+            prevCameraAngleXZ += differenceXZ / 10.0f;
+            prevCameraAngleY += differenceY / 10.0f;
+
+            cameraController.updateViewMatrix();
+            view = cameraController.getView();
                 
             // Calculate timeDelta.
             time = clock.ElapsedMilliseconds / 1000f;

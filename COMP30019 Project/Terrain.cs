@@ -286,27 +286,27 @@ namespace SharpDX_Windows_8_Abstraction
         {
             // This is using forced color on different section of height
             
-            if (height < 10.0f)
+            if (height < WorldBottom + (WorldTop - WorldBottom) / 7.0f)
             {
                 return blue;
             }
-            else if (height < 30.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 2 / 7.0f)
             {
                 return lightBlue;
             }
-            else if (height < 40.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 3 / 7.0f)
             {
                 return yellow;
             }
-            else if (height < 50.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 4 / 7.0f)
             {
                 return darkYellow;
             }
-            else if (height < 60.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 5 / 7.0f)
             {
                 return green;
             }
-            else if (height < 90.0f)
+            else if (height < WorldBottom + (WorldTop - WorldBottom) * 6 / 7.0f)
             {
                 return brown;
             }
