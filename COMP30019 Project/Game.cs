@@ -75,10 +75,9 @@ namespace SharpDX_Windows_8_Abstraction
         // Set up the light, a grey ambient light and a white positional light
         // The positional light is currently located above and behind the cube
         // (because it's + in Y and + in Z)
-        Vector4 lightAmbCol = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
+        Vector4 lightAmbCol = new Vector4(0.7f, 0.7f, 0.7f, 1.0f);
         Vector4 lightPntCol = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-      //  Vector4 lightPntPos =  new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f)// new Vector4(10.0f, 10.0f, -3.0f, 1.0f);
-        Vector4 lightPntPos = new Vector4();
+        Vector4 lightPntPos = new Vector4((float)MAP_SIZE / 2.0f, 300.0f, (float)MAP_SIZE / 2.0f, 1.0f);
 
         //cbuffer structure which is used by shaders
         struct S_SHADER_GLOBALS
@@ -288,7 +287,7 @@ namespace SharpDX_Windows_8_Abstraction
         public void Update()
         {
           //FIX ME: uncomment this line of code to keep tracking the player.  
-          // cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
+           cameraController.lookAt(new Vector3((float)(player.pos.X - 20 * Math.Cos(player.getAngleXZ())), player.pos.Y + 30, player.pos.Z - (float)(20 * Math.Sin(player.getAngleXZ()))), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
            cameraController.updateViewMatrix();
            view = cameraController.getView();
                 
@@ -301,7 +300,7 @@ namespace SharpDX_Windows_8_Abstraction
             game_time_limit -= timeDelta;
             if (game_time_limit <= 0.0f)
             {
-                // Game is finished
+                // Time is up, game is finished
                 Remove(player);
             }
             else if (this.Count(GameObjectType.Enemy) == 0)
@@ -328,16 +327,10 @@ namespace SharpDX_Windows_8_Abstraction
             // Clear depth buffer.
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
-<<<<<<< HEAD
-            
-            S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getViewProj(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
-=======
-
-            Vector4 tempPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
 
             S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
->>>>>>> 9fabc13bc7d7f8e5139f5b5ef8c29040394692dd
             context.UpdateSubresource(ref shaderGlobals, constantBuffer);
+
             //var worldInvTrp = world;
             //worldInvTrp.Invert();
             //worldInvTrp.Transpose();

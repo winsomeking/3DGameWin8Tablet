@@ -29,6 +29,7 @@ struct PS_COLOURED_IN
 {
 	float4 pos : SV_POSITION;
 	float4 col : COLOR;
+	float4 nrm : NORMAL;
 };
 
 //This variable will be put in constant buffer
@@ -54,30 +55,30 @@ PS_COLOURED_IN VS_COLOURED( VS_COLOURED_IN input )
 	
 
 	// Calculate ambient RGB intensities
-float Ka = 1;
-float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
+	float Ka = 1;
+	float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
 
-// Calculate diffuse RBG reflections
-float fAtt = 1;
-float Kd = 1;
-float4 L = normalize(lightPntPos - input.pos);
-float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*saturate(dot(normalize(input.nrm),L));
+	// Calculate diffuse RBG reflections
+	float fAtt = 1;
+	float Kd = 1;
+	float4 L = normalize(lightPntPos - input.pos);
+	float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*saturate(dot(normalize(input.nrm),L));
 
-// Calculate specular reflections
-float Ks = 1;
-float specN = 1;
-float4 V = normalize(eyePos4 - input.pos);
-float4 R = float4(0,0,0,0);
-float3 spe = fAtt*lightPntCol.rgb*Ks*pow(saturate(dot(V,R)),specN);
+	// Calculate specular reflections
+	float Ks = 1;
+	float specN = 1;
+	float4 V = normalize(eyePos4 - input.pos);
+	float4 R = float4(0,0,0,0);
+	float3 spe = fAtt*lightPntCol.rgb*Ks*pow(saturate(dot(V,R)),specN);
 
-// Combine reflection components
-output.col.rgb = amb.rgb+dif.rgb+spe.rgb;
-output.col.a = input.col.a;
+	// Combine reflection components
+	output.col.rgb = amb.rgb+dif.rgb+spe.rgb;
+	output.col.a = input.col.a;
 
-// Convert Vertex position into eye coords
-output.pos = mul(input.pos, worldViewProj);
+	// Convert Vertex position into eye coords
+	output.pos = mul(input.pos, worldViewProj);
 
-return output;
+	return output;
 }
 
 float4 PS_COLOURED( PS_COLOURED_IN input ) : SV_Target
