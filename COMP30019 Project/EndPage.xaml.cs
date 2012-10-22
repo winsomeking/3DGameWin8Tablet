@@ -106,6 +106,11 @@ namespace SharpDX_Windows_8_Abstraction
             target.Present();
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
+
         
     }
 }

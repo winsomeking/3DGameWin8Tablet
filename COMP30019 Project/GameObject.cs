@@ -28,6 +28,7 @@ namespace SharpDX_Windows_8_Abstraction
         {
 
         }
+       
 
         public virtual void OnManipulationStarted(GestureRecognizer sender, ManipulationStartedEventArgs args)
         {

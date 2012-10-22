@@ -1,1 +1,0 @@
-C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\SharpDX_Windows_8_Abstraction.csproj;neutral

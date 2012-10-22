@@ -59,6 +59,7 @@ namespace SharpDX_Windows_8_Abstraction
             Window.Current.Content = swapchainPanel;
             Window.Current.Activate();
 
+
             // Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
             target = new SwapChainBackgroundPanelTarget(swapchainPanel);
 

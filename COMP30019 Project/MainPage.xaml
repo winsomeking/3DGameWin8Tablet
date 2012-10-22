@@ -7,11 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Margin="10,0,-28,-109">
+    <Grid Margin="-28,10,10,-119">
         <Grid.Background>
-            <ImageBrush ImageSource="images/mainpageBG.jpg"/>
+            <ImageBrush ImageSource="images/MainMenu.jpg"/>
         </Grid.Background>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="562,622,0,138" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Background="#FF2F1C51" Opacity="0.7"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="164,559,0,201" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Opacity="0.7">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3761AC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </SwapChainBackgroundPanel>

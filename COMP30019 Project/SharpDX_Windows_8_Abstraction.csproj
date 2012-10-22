@@ -142,9 +142,15 @@
     <Compile Include="VisibleGameObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bigLogo.jpg" />
+    <Content Include="Assets\logo.jpg" />
+    <Content Include="Assets\smallLogo.jpg" />
+    <Content Include="Assets\Themountaintimelapse.jpg" />
     <Content Include="images\GameOver.jpg" />
     <Content Include="images\MainMenu.jpg" />
+    <Content Include="Assets\Smileyface.jpg" />
     <Content Include="images\Target.gif" />
+    <Content Include="Assets\splashView.jpg" />
     <Content Include="Rhino_modified.txt" />
     <None Include="Common\ReadMe.txt" />
     <AppxManifest Include="Package.appxmanifest">
@@ -220,7 +226,6 @@
     <Content Include="Assets\player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\SplashScreen.png" />
     <Content Include="shaders\Coloured.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
