@@ -17,71 +17,80 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+//
+// Adapted for COMP30019 by Jeremy Nicholson, 18 Oct 2012
+//
 
-struct VS_COLOURED_IN
+struct VS_IN
 {
-	float4 pos : POSITION;
-	float4 col : COLOR;
-	float4 nrm : NORMAL;
+float4 pos : POSITION;
+float4 col : COLOR;
+float4 nrm : NORMAL;
+// Other vertex properties, e.g. texture co-ords, surface Kd, Ks, etc
 };
 
-struct PS_COLOURED_IN
+struct PS_IN
 {
-	float4 pos : SV_POSITION;
-	float4 col : COLOR;
-	float4 nrm : NORMAL;
+float4 pos : SV_POSITION;
+float4 col : COLOR;
 };
 
-//This variable will be put in constant buffer
-//float4x4 worldViewProj;
-
+// We use a cbuffer (constant buffer) to read the relevant
+// uniform variables from the *.cs program --- these won't change in
+// a given iteration of the shader
 cbuffer shaderGlobals
 {
-	float4x4 worldViewProj;
+	float4x4 worldProj;
+	float4x4 worldInvTrp;
+	float4x4 viewProj;
 	float4 eyePos4;
 	float4 lightAmbCol;
 	float4 lightPntPos;
 	float4 lightPntCol;
 }
 
-PS_COLOURED_IN VS_COLOURED( VS_COLOURED_IN input )
+PS_IN VS_COLOURED( VS_IN input )
 {
-	/*PS_COLOURED_IN output = (PS_COLOURED_IN)0;
-	
-	output.pos = mul(float4(input.pos, 1.0f), worldViewProj);
-	output.col = input.col;*/
-	
-	PS_COLOURED_IN output = (PS_COLOURED_IN)0;
-	
+PS_IN output = (PS_IN)0;
 
-	// Calculate ambient RGB intensities
-	float Ka = 1;
-	float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
+// Convert Vertex position and corresponding normal into world coords
+// Note that we have to multiply the normal by the transposed inverse of the world 
+// transformation matrix (for cases where we have non-uniform scaling; we also don't
+// care about the "fourth" dimension, because translations don't affect the normal) 
+float4 worldVertex = mul(input.pos, worldProj);
+float3 worldNormal = normalize(mul(input.nrm.xyz, (float3x3)worldInvTrp));
 
-	// Calculate diffuse RBG reflections
-	float fAtt = 1;
-	float Kd = 1;
-	float4 L = normalize(lightPntPos - input.pos);
-	float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*saturate(dot(normalize(input.nrm),L));
+// Calculate ambient RGB intensities
+float Ka = 1;
+float3 amb = input.col.rgb*lightAmbCol.rgb*Ka;
 
-	// Calculate specular reflections
-	float Ks = 1;
-	float specN = 1;
-	float4 V = normalize(eyePos4 - input.pos);
-	float4 R = float4(0,0,0,0);
-	float3 spe = fAtt*lightPntCol.rgb*Ks*pow(saturate(dot(V,R)),specN);
+// Calculate diffuse RBG reflections, we save the results of L.N because we will use it again
+// (when calculating the reflected ray in our specular component)
+float fAtt = 1;
+float Kd = 1;
+float3 L = normalize(lightPntPos.xyz - worldVertex.xyz);
+float LdotN = saturate(dot(L,worldNormal.xyz));
+float3 dif = fAtt*lightPntCol.rgb*Kd*input.col.rgb*LdotN;
 
-	// Combine reflection components
-	output.col.rgb = amb.rgb+dif.rgb+spe.rgb;
-	output.col.a = input.col.a;
+// Calculate specular reflections
+float Ks = 1;
+float specN = 5; // Values>>1 give tighter highlights
+float3 V = normalize(eyePos4.xyz - worldVertex.xyz);
+float3 R = normalize(2*LdotN*worldNormal.xyz - L.xyz);
+//float3 R = normalize(0.5*(L.xyz+V.xyz)); //Blinn-Phong equivalent
+float3 spe = fAtt*lightPntCol.rgb*Ks*pow(saturate(dot(V,R)),specN);
 
-	// Convert Vertex position into eye coords
-	output.pos = mul(input.pos, worldViewProj);
+// Combine reflection components
+output.col.rgb = amb.rgb+dif.rgb+spe.rgb;
+output.col.a = input.col.a;
 
-	return output;
+// Transform vertex in world coordinates to camera coordinates
+output.pos = mul(worldVertex, viewProj);
+
+return output;
 }
 
-float4 PS_COLOURED( PS_COLOURED_IN input ) : SV_Target
+float4 PS_COLOURED( PS_IN input ) : SV_Target
 {
 	return input.col;
 }

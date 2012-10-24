@@ -38,7 +38,7 @@ namespace SharpDX_Windows_8_Abstraction
         private float speedXZ = 15.0f;
         private float accelerationY = 0;
         private float accelerationXZ = 0;
-        private float gravity = -0.5f;
+        private float gravity = -0.3f;
 
         /*
         private bool leftDown;
@@ -208,8 +208,8 @@ namespace SharpDX_Windows_8_Abstraction
                             speedXZ += 2.0f;
                             break;
                     }
-
                     score += (int)(1000.0 * vel.LengthSquared());
+                    game.mainPage.updateScore(score);
                 }
             }
 
@@ -286,9 +286,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 17] = 0.0f;
                 floatArray[i * 36 + 18] = 0.0f;
                 floatArray[i * 36 + 19] = 1.0f;
-                floatArray[i * 36 + 20] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3];
-                floatArray[i * 36 + 21] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 1];
-                floatArray[i * 36 + 22] = floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 2];
+                floatArray[i * 36 + 20] = -floatArrayNormal[intArrayFace[i * 6 + 1] * 3];
+                floatArray[i * 36 + 21] = -floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 1];
+                floatArray[i * 36 + 22] = -floatArrayNormal[intArrayFace[i * 6 + 1] * 3 + 2];
                 floatArray[i * 36 + 23] = 1.0f;
 
                 floatArray[i * 36 + 0] = floatArrayVertices[intArrayFace[i * 6 + 2] * 3];
@@ -299,9 +299,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 5] = 1.0f;
                 floatArray[i * 36 + 6] = 0.0f;
                 floatArray[i * 36 + 7] = 1.0f;
-                floatArray[i * 36 + 8] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3];
-                floatArray[i * 36 + 9] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 1];
-                floatArray[i * 36 + 10] = floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 2];
+                floatArray[i * 36 + 8] = -floatArrayNormal[intArrayFace[i * 6 + 3] * 3];
+                floatArray[i * 36 + 9] = -floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 1];
+                floatArray[i * 36 + 10] = -floatArrayNormal[intArrayFace[i * 6 + 3] * 3 + 2];
                 floatArray[i * 36 + 11] = 1.0f;
 
                 floatArray[i * 36 + 24] = floatArrayVertices[intArrayFace[i * 6 + 4] * 3];
@@ -312,9 +312,9 @@ namespace SharpDX_Windows_8_Abstraction
                 floatArray[i * 36 + 29] = 0.0f;
                 floatArray[i * 36 + 30] = 1.0f;
                 floatArray[i * 36 + 31] = 1.0f;
-                floatArray[i * 36 + 32] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3];
-                floatArray[i * 36 + 33] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 1];
-                floatArray[i * 36 + 34] = floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 2];
+                floatArray[i * 36 + 32] = -floatArrayNormal[intArrayFace[i * 6 + 5] * 3];
+                floatArray[i * 36 + 33] = -floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 1];
+                floatArray[i * 36 + 34] = -floatArrayNormal[intArrayFace[i * 6 + 5] * 3 + 2];
                 floatArray[i * 36 + 35] = 1.0f;
             }
         }

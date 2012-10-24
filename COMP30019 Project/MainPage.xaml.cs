@@ -59,7 +59,6 @@ namespace SharpDX_Windows_8_Abstraction
             Window.Current.Content = swapchainPanel;
             Window.Current.Activate();
 
-
             // Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
             target = new SwapChainBackgroundPanelTarget(swapchainPanel);
 
@@ -100,6 +99,21 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Swap buffers
             target.Present();
+        }
+
+        // this method is called every second by the timer. Count down the remaining
+        // time that the game has to run.
+        public void setTimeText(String time)
+        {
+            // display the new time in a text field.
+            countDownText.Text = time;
+        }
+
+        // this method is called when the score changes. It displays the new score on
+        // the screen.
+        public void updateScore(int newScore)
+        {
+            scoreText.Text = "Score: " + newScore.ToString();
         }
     }
 }
