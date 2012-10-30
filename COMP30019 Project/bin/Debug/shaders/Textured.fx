@@ -29,7 +29,19 @@ struct PS_TEXTURED_IN
 	float2 tex : TEXCOORD;
 };
 
-float4x4 worldViewProj;
+// We use a cbuffer (constant buffer) to read the relevant
+// uniform variables from the *.cs program --- these won't change in
+// a given iteration of the shader
+cbuffer shaderGlobals
+{
+	float4x4 worldProj;
+	float4x4 worldInvTrp;
+	float4x4 viewProj;
+	float4 eyePos4;
+	float4 lightAmbCol;
+	float4 lightPntPos;
+	float4 lightPntCol;
+}
 
 Texture2D picture;
 SamplerState pictureSampler;
@@ -38,6 +50,7 @@ PS_TEXTURED_IN VS_TEXTURED( VS_TEXTURED_IN input )
 {
 	PS_TEXTURED_IN output = (PS_TEXTURED_IN)0;
 	
+	float4x4 worldViewProj = mul(worldProj,viewProj);
 	output.pos = mul(float4(input.pos, 1.0f), worldViewProj);
 	output.tex = input.tex;
 	

@@ -90,15 +90,18 @@ namespace SharpDX_Windows_8_Abstraction
         //cbuffer structure which is used by shaders
         struct S_SHADER_GLOBALS
         {
-            Matrix projectionMatrix;
+            Matrix worldTransforms;
+            Matrix worldInvTranspose;
+            Matrix viewTransforms;
             Vector4 cameraPosition;
             Vector4 ambientColour;
             Vector4 pointPosition;
             Vector4 pointColour;
-            
-            public S_SHADER_GLOBALS(Matrix pM, Vector4 cP, Vector4 aC, Vector4 pP, Vector4 pC)
+            public S_SHADER_GLOBALS(Matrix wT, Matrix wITp, Matrix vT, Vector4 cP, Vector4 aC, Vector4 pP, Vector4 pC)
             {
-                this.projectionMatrix = pM;
+                this.worldTransforms = wT;
+                this.worldInvTranspose = wITp;
+                this.viewTransforms = vT;
                 this.cameraPosition = cP;
                 this.ambientColour = aC;
                 this.pointPosition = pP;
@@ -106,13 +109,13 @@ namespace SharpDX_Windows_8_Abstraction
             }
         }
 
-
+        S_SHADER_GLOBALS shaderGlobals;
 
         // Constructor/initaliser for Game.
         public Game(MainPage mainPage, Assets assets, DeviceManager deviceManager)
         {
             // Set references to 
-            game_time_limit = 90.0f; // 1 minute time limit
+            game_time_limit = 90.0f; // 1.5 minute time limit
             this.mainPage = mainPage;
             this.assets = assets;
             this.deviceManager = deviceManager;
@@ -180,7 +183,7 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Create game objects.
             player = new Player(this);
-            lightPntPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
+            //lightPntPos = new Vector4(player.pos.X, player.pos.Y + 30, player.pos.Z - 20, 1.0f);
             cameraController.lookAt(new Vector3(player.pos.X, player.pos.Y + 30, player.pos.Z - 20), new Vector3(player.pos.X, player.pos.Y, player.pos.Z), new Vector3(0, 1, 0));
             Add(player);
             Add(game_terrain);
@@ -377,6 +380,8 @@ namespace SharpDX_Windows_8_Abstraction
                 // Time is up, game is finished
                 Remove(player);
             }
+            mainPage.setTimeText(System.Convert.ToString(System.Convert.ToInt32(game_time_limit)));
+            
 
             flushAddedAndRemovedGameObjects();
 
@@ -401,13 +406,12 @@ namespace SharpDX_Windows_8_Abstraction
             context.ClearDepthStencilView(render.DepthStencilView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(render.RenderTargetView, Colors.Black);
 
-            S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(worldViewProj, cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
-            context.UpdateSubresource(ref shaderGlobals, constantBuffer);
+            var worldInvTrp = world;
+            worldInvTrp.Invert();
+            world.Transpose();
 
-            //var worldInvTrp = world;
-            //worldInvTrp.Invert();
-            //worldInvTrp.Transpose();
-            //world.Transpose();
+            //shaderGlobals = new S_SHADER_GLOBALS(world, worldInvTrp, cameraController.getView(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+            //context.UpdateSubresource(ref shaderGlobals, constantBuffer);
 
             //S_SHADER_GLOBALS shaderGlobals = new S_SHADER_GLOBALS(world, worldInvTrp, cameraController.getView(), cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
             //context.UpdateSubresource(ref shaderGlobals, constantBuffer);
@@ -529,10 +533,22 @@ namespace SharpDX_Windows_8_Abstraction
 
         public void updateConstantBuffer()
         {
-           //worldViewProj = world * view * proj;
-            worldViewProj = world * cameraController.getView() * cameraController.getProj();
-            worldViewProj.Transpose();
-            deviceManager.ContextDirect3D.UpdateSubresource(ref worldViewProj, constantBuffer, 0);
+
+            //lightPntPos = new Vector4((float)(MAP_SIZE / 2.0f) + 48 * (float)Math.Cos(game_time_limit), 300.0f, (float)(MAP_SIZE / 2.0f) + 48 * (float)Math.Sin(game_time_limit), 1.0f);
+
+            var worldInvTrp = world;
+            worldInvTrp.Invert();
+            world.Transpose();
+
+            var viewProj = cameraController.getView() * cameraController.getProj();
+            viewProj.Transpose();
+
+            //worldViewProj = world * view * proj;
+            //worldViewProj = world * cameraController.getView() * cameraController.getProj();
+            //worldViewProj.Transpose();
+
+            shaderGlobals = new S_SHADER_GLOBALS(world, worldInvTrp, viewProj, cameraController.getPos(), lightAmbCol, lightPntPos, lightPntCol);
+            deviceManager.ContextDirect3D.UpdateSubresource(ref shaderGlobals, constantBuffer, 0);
         }
 
         public Terrain getTerrain()

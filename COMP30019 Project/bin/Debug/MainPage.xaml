@@ -19,6 +19,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <TextBox x:Name="scoreText" HorizontalAlignment="Left" Height="38" Margin="88,54,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="countDownText" HorizontalAlignment="Left" Height="38" Margin="88,97,0,0" TextWrapping="Wrap" Text="Time Left: 0" VerticalAlignment="Top" Width="182"/>
 
     </Grid>
 </SwapChainBackgroundPanel>
