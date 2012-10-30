@@ -5,22 +5,11 @@
     xmlns:local="using:SharpDX_Windows_8_Abstraction"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    d:DesignWidth="1280"
+    d:DesignHeight="800">
+  
+        <TextBox x:Name="scoreText" HorizontalAlignment="Left" Height="38" Margin="88,54,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="countDownText" HorizontalAlignment="Left" Height="38" Margin="310,54,0,0" TextWrapping="Wrap" Text="Time Left: 0" VerticalAlignment="Top" Width="114"/>
 
-    <Grid Margin="-28,10,10,-119">
-        <Grid.Background>
-            <ImageBrush ImageSource="images/MainMenu.jpg"/>
-        </Grid.Background>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="164,559,0,201" VerticalAlignment="Stretch" Width="312" Click="Button_Click_1" FontSize="44.667" Opacity="0.7">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF3761AC" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <TextBox x:Name="scoreText" HorizontalAlignment="Left" Height="38" Margin="88,54,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="countDownText" HorizontalAlignment="Left" Height="38" Margin="88,97,0,0" TextWrapping="Wrap" Text="Time Left: 0" VerticalAlignment="Top" Width="182"/>
-
-    </Grid>
 </SwapChainBackgroundPanel>

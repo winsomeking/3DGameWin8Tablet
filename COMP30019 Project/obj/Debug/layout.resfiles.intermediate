@@ -13,6 +13,7 @@ Common\StandardStyles.xaml
 Console.xaml
 EndPage.xaml
 MainPage.xaml
+StartPage.xaml
 images\background.jpg
 images\GameOver.jpg
 images\MainMenu.jpg

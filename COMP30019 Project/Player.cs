@@ -208,6 +208,7 @@ namespace SharpDX_Windows_8_Abstraction
                             speedXZ += 2.0f;
                             break;
                     }
+
                     score += (int)(1000.0 * vel.LengthSquared());
                     game.mainPage.updateScore(score);
                 }

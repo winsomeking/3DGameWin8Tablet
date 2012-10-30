@@ -178,8 +178,8 @@ namespace SharpDX_Windows_8_Abstraction
             //Matrix.PerspectiveFovLH(1, 1, 0.001f, 100);
 
             // Set console as layout.
-            console = new Console();
-            mainPage.SetLayout(console);
+           // console = new Console();
+           // mainPage.SetLayout(console);
 
             // Create game objects.
             player = new Player(this);

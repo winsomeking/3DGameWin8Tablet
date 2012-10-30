@@ -53,7 +53,8 @@ namespace SharpDX_Windows_8_Abstraction
         SwapChainBackgroundPanelTarget target;
         Assets assets;
         Game game;
-        MainPage swapchainPanel;
+        //MainPage swapchainPanel;
+        StartPage startPage;
         static private List<IDisposable> disposableList;
 
         /// <summary>
@@ -83,8 +84,8 @@ namespace SharpDX_Windows_8_Abstraction
             deviceManager = new DeviceManager();
       
             // Place the frame in the current Window and ensure that it is active
-            swapchainPanel = new MainPage();
-            Window.Current.Content = swapchainPanel;
+            startPage = new StartPage();
+            Window.Current.Content = startPage;
             Window.Current.Activate();
 
             //// Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
