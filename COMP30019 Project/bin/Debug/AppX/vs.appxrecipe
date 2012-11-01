@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-30T05:28:18.945</Modified>
+      <Modified>2012-11-01T04:39:13.569</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.exe">
       <PackagePath>SharpDX_Windows_8_Abstraction.exe</PackagePath>
-      <Modified>2012-10-30T05:28:18.857</Modified>
+      <Modified>2012-11-01T04:39:13.474</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX_Windows_8_Abstraction.pdb">
       <PackagePath>SharpDX_Windows_8_Abstraction.pdb</PackagePath>
-      <Modified>2012-10-30T05:28:18.820</Modified>
+      <Modified>2012-11-01T04:39:13.439</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\CommonDX.dll">
       <PackagePath>CommonDX.dll</PackagePath>
@@ -126,19 +126,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_COLOURED.cso">
       <PackagePath>shaders\PS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-30T05:28:17.338</Modified>
+      <Modified>2012-11-01T04:39:11.982</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\PS_TEXTURED.cso">
       <PackagePath>shaders\PS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-30T05:28:17.395</Modified>
+      <Modified>2012-11-01T04:39:12.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_COLOURED.cso">
       <PackagePath>shaders\VS_COLOURED.cso</PackagePath>
-      <Modified>2012-10-30T05:28:17.321</Modified>
+      <Modified>2012-11-01T04:39:11.965</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\shaders\VS_TEXTURED.cso">
       <PackagePath>shaders\VS_TEXTURED.cso</PackagePath>
-      <Modified>2012-10-30T05:28:17.379</Modified>
+      <Modified>2012-11-01T04:39:12.023</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\Assets\enemy projectile.png">
       <PackagePath>Assets\enemy projectile.png</PackagePath>

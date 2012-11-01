@@ -159,12 +159,16 @@ namespace SharpDX_Windows_8_Abstraction
             vel.Y += accelerationY;
 
             // If accelerometer is tilted, then 
-           // float temp = game.getAccelX();
-            //if(game.getAccelX()==0.0f)
-            //    angleXZ += 0.000f;
+            //float temp = game.getAccelX();
+
+            //if (temp > 0.0f)
+            //    angleXZ += game.getAccelX() * 0.6f;
+
             //else
-            //    angleXZ += 10.0f;
+               // angleXZ += 10.0f;
+              //  angleXZ -= game.getAccelX()*0.06f;
             angleXZ -= game.getAccelX() * 0.06f;
+
 
             /* CHECK COLLISION WITH TERRAIN */
             if (pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) < 1.5f && pos.Y - game.getTerrain().getWorldHeight((int)pos.X, (int)pos.Z) > -10.0f)
