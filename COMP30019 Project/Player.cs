@@ -213,7 +213,7 @@ namespace SharpDX_Windows_8_Abstraction
                             break;
                     }
 
-                    score += (int)(1000.0 * vel.LengthSquared());
+                    score += 1;//(int)(1000.0 * vel.LengthSquared());
                     game.mainPage.updateScore(score);
                 }
             }

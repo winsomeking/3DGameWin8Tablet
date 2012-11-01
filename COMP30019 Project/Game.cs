@@ -375,12 +375,24 @@ namespace SharpDX_Windows_8_Abstraction
 
             // Game time limiter
             game_time_limit -= timeDelta;
-            if (game_time_limit <= 0.0f)
+            if(game_time_limit<=0){
+               Remove(player);
+            }
+            
+            if (game_time_limit <= -2.0f)
             {
                 // Time is up, game is finished
-                Remove(player);
+               
+                
+                var rootFrame = new Frame();
+                rootFrame.Navigate(typeof(EndPage));
+
+                // Place the frame in the current Window and ensure that it is active
+                Window.Current.Content = rootFrame;
+                Window.Current.Activate();
             }
-            mainPage.setTimeText(System.Convert.ToString(System.Convert.ToInt32(game_time_limit)));
+            if(game_time_limit >= 0)
+                 mainPage.setTimeText(System.Convert.ToString(System.Convert.ToInt32(game_time_limit)));
             
 
             flushAddedAndRemovedGameObjects();
