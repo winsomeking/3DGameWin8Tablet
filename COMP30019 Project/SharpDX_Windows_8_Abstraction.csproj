@@ -149,6 +149,8 @@
     <Content Include="Assets\logo.jpg" />
     <Content Include="Assets\smallLogo.jpg" />
     <Content Include="Assets\Themountaintimelapse.jpg" />
+    <Content Include="Audio\FSBRK5043.wav" />
+    <Content Include="Audio\FSSTR4247.wav" />
     <Content Include="images\GameOver.jpg" />
     <Content Include="images\MainMenu.jpg" />
     <Content Include="Assets\Smileyface.jpg" />
@@ -219,6 +221,9 @@
     <Reference Include="SharpDX.DXGI">
       <HintPath>Sharp\SharpDX.DXGI.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX.XAudio2">
+      <HintPath>..\..\SharpDX-Full-2.2.0\Bin\Win8Metro\SharpDX.XAudio2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\enemy projectile.png">
@@ -240,6 +245,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

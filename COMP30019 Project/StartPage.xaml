@@ -19,6 +19,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <MediaElement HorizontalAlignment="Left" Height="100" Margin="392,178,0,0" VerticalAlignment="Top" Width="100" IsLooping="True" Source="Audio/FSBRK5043.wav" RealTimePlayback="True"/>
 
     </Grid>
 </Page>

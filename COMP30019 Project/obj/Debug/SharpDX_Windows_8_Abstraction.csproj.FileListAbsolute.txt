@@ -539,3 +539,5 @@ C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\priconfig.xm
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\layout.resfiles.intermediate
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\resources.resfiles.intermediate
 C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\obj\Debug\pri.resfiles.intermediate
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\COMP30019\Desktop\GitWorkspace\COMP30019 Project\bin\Debug\SharpDX.XAudio2.xml

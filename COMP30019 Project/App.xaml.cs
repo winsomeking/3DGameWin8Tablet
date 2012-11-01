@@ -82,11 +82,14 @@ namespace SharpDX_Windows_8_Abstraction
             // Safely dispose any previous instance
             // Creates a new DeviceManager (Direct3D, Direct2D, DirectWrite, WIC)
             deviceManager = new DeviceManager();
+            
       
             // Place the frame in the current Window and ensure that it is active
             startPage = new StartPage();
             Window.Current.Content = startPage;
             Window.Current.Activate();
+
+            
 
             //// Use CoreWindowTarget as the rendering target (Initialize SwapChain, RenderTargetView, DepthStencilView, BitmapTarget)
             //target = new SwapChainBackgroundPanelTarget(swapchainPanel);

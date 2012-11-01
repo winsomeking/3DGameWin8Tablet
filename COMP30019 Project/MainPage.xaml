@@ -11,5 +11,6 @@
   
         <TextBox x:Name="scoreText" HorizontalAlignment="Left" Height="38" Margin="88,54,0,0" TextWrapping="Wrap" Text="Score: 0" VerticalAlignment="Top" Width="166"/>
         <TextBox x:Name="countDownText" HorizontalAlignment="Left" Height="38" Margin="310,54,0,0" TextWrapping="Wrap" Text="Time Left: 0" VerticalAlignment="Top" Width="114"/>
+    <MediaElement HorizontalAlignment="Left" Height="4" Margin="97,138,0,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="-0.09,0.11" Source="Audio/FSSTR4247.wav" IsLooping="True" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False"/>
 
 </SwapChainBackgroundPanel>
